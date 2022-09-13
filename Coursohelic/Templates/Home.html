@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{%load static%}
 <html>
 
 <head>
@@ -8,7 +9,7 @@
         body {
             padding: 0;
             margin: 0;
-            background-image: url(homeImage.jpg);
+            background-image: url({% static 'images/homeImage.jpg' %});
             background-size: 100%;
         }
 
