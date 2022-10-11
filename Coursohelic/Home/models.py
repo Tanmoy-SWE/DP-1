@@ -44,7 +44,7 @@ class Department(models.Model):
 
 class Semester(models.Model):
     id = models.CharField(max_length = 20, primary_key=True)
-    semester_name = models.CharField(max_length=200)
+    semester_name = models.CharField(max_length=2   00)
     semester_length = models.CharField(max_length=100)
     year = models.CharField(max_length=10)
 
