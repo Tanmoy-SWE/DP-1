@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Admin Registration</title>
+    <body>
+      <section class="bg-gray-50 min-h-screen flex items-center justify-center">
+        <!-- login container -->
+        <div
+          class="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center"
+        >
+          <!-- form -->
+          <div class="md:w-1/2 px-8 md:px-16">
+            <h2 class="font-bold text-2xl text-[#002D74]">Registration</h2>
+            <p class="text-xs mt-4 text-[#002D74]">
+              New Admin?? Create an account
+            </p>
+
+            <form action="" class="flex flex-col gap-4">
+              <input
+                class="p-2 mt-8 rounded-xl"
+                type="name"
+                name="name"
+                placeholder="Name"
+              />
+              <input
+                class="p-2 mt-1 rounded-xl"
+                type="username"
+                name="username"
+                placeholder="Username"
+              />
+              <input
+                class="p-2 mt-1 rounded-xl"
+                type="email"
+                name="email"
+                placeholder="Email"
+              />
+              <input
+                class="p-2 mt-1 rounded-xl"
+                type="institution"
+                name="institution"
+                placeholder="Institution"
+              />
+              <div class="relative">
+                <input
+                  class="p-2 rounded-xl border w-full"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="relative">
+                <input
+                  class="p-2 rounded-xl border w-full"
+                  type="confirmPassword"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                />
+              </div>
+              <button
+                class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"
+              >
+                Register
+              </button>
+            </form>
+
+            <div class="mt-6 grid grid-cols-3 items-center text-gray-400">
+              <hr class="border-gray-400" />
+              <p class="text-center text-sm">OR</p>
+              <hr class="border-gray-400" />
+            </div>
+            <div
+              class="mt-3 text-xs flex justify-between items-center text-[#002D74]"
+            >
+              <p>Already have an account?</p>
+              <button
+                class="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+
+          <!-- image -->
+          <div class="md:block hidden w-1/2">
+            <img
+              class="rounded-2xl"
+              src="https://images.unsplash.com/photo-1632406895715-c9521b447fab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGFkbWlufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            />
+          </div>
+        </div>
+      </section>
+    </body>
+  </head>
+</html>
