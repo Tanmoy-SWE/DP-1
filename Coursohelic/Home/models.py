@@ -5,7 +5,7 @@ from django.db import models
 import hashlib
 
 # Create your models here.
-class Admin(models.Model):
+class institutionAdmin(models.Model):
     id = models.CharField(max_length = 20, primary_key=True)
     name = models.CharField(max_length=200)
     insititution = models.CharField(max_length=200)
@@ -40,11 +40,11 @@ class Department(models.Model):
     d_id = models.CharField(max_length = 20, primary_key=True)
     name = models.CharField(max_length=200)
     established_on = models.DateTimeField(auto_now_add=True)
-    opened_by =  models.ForeignKey(Admin, on_delete=models.SET_NULL, blank=True, null=True)
+    opened_by =  models.ForeignKey(institutionAdmin, on_delete=models.SET_NULL, blank=True, null=True)
 
 class Semester(models.Model):
     id = models.CharField(max_length = 20, primary_key=True)
-    semester_name = models.CharField(max_length=2   00)
+    semester_name = models.CharField(max_length=200)
     semester_length = models.CharField(max_length=100)
     year = models.CharField(max_length=10)
 
