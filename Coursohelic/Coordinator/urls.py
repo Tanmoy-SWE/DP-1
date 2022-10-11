@@ -4,5 +4,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-     path('coordinatorForm/', views.coordinator, name='coordinatorForm'),
+     path('', views.login, name='ProgramCoordinatorLoginPage'),
+     path('ProgramCoordinatorRegistrationPage/', views.registration, name='ProgramCoordinatorRegistrationPage'),
+     
 ]

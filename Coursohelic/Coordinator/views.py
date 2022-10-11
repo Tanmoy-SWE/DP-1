@@ -2,5 +2,8 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 
-def coordinator(request):
-    return render(request , 'CoordinatorForm.html')
+def login(request):
+    return render(request , 'ProgramCoordinatorLoginPage.html')
+
+def registration(request):
+    return render(request , 'ProgramCoordinatorRegistrationPage.html')

@@ -4,5 +4,6 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('courseInstructorForm/', views.cour_ins_form, name='courseInstructorForm'),
+    path('', views.login, name='ProgramInstructorLoginPage'),
+    path('ProgramInstructorRegistrationPage/', views.registration, name='ProgramInstructorRegistrationPage'),
 ]
