@@ -8,3 +8,4 @@ class User(AbstractUser):
     is_instructor = models.BooleanField(default=False)
     is_admin= models.BooleanField(default=True)
     is_coordinator = models.BooleanField(default=False)
+    institution = models.CharField(max_length=200)
