@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Coordinator',
     'Instructor',
     'InstitutionAdmin',
+    'Authentication',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +128,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/images/'
-
+AUTH_USER_MODEL = 'Authentication.User'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
