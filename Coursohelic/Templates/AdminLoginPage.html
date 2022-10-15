@@ -15,28 +15,16 @@
               If you are already an Admin, log in
             </p>
 
-            <form action="" class="flex flex-col gap-4">
-              <input
-                class="p-2 mt-8 rounded-xl"
-                type="username"
-                name="username"
-                placeholder="Username"
-              />
-              <div class="relative">
-                <input
-                  class="p-2 rounded-xl border w-full"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                />
-              </div>
-              <button
-                type="submit"
-                class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"
-              >
-                Login
-              </button>
-            </form>
+            <form action="AdminHome/" method="POST">
+              {% csrf_token %}
+              <label for="">Username</label>
+              <input type = "text" id = "username" name ="username" placeholder="Enter Your Username : " Required>
+              <br>
+              <label for="">Password</label>
+              <input type = "password" id = "password" name = "password" placeholder="Enter your Password : " Required>
+              <br>
+              <button class = "login" type="submit">Log In</button>
+          </form>
 
             <div class="mt-6 grid grid-cols-3 items-center text-gray-400">
               <hr class="border-gray-400" />
