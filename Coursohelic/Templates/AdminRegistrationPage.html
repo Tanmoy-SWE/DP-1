@@ -15,35 +15,16 @@
               New Admin?? Create an account
             </p>
 
-            <form method="POST" actions="">
-              {% csrf_token %}
-              <div class="p-2 rounded-xl">
-                  {{form.first_name.label}}
-                  {{form.first_name}}
-              <div>
-              <div class="p-2 rounded-xl">
-                  {{form.institution.label}}
-                  {{form.institution}}
-              <div>
-              <div class="p-2 rounded-xl">
-                  {{form.email.label}}
-                  {{form.email}}
-              <div>
-              <div class="p-2 rounded-xl">
-                  {{form.username.label}}
-                  {{form.username}}
-              <div>
-              <div class="p-2 rounded-xl">
-                  {{form.password1.label}}
-                  {{form.password1}}
-              <div>
-                <div class="p-2 rounded-xl">
-                  {{form.password2.label}}
-                  {{form.password2}}
-              <div>
-                <input type="submit" class="accept" name="Create User">
-          </div> 
-          </form>
+            <form method="POST" actions="" class="flex flex-col gap-4">
+              {% csrf_token %} {{form.username}} {{form.first_name}}
+              {{form.institution}} {{form.email}} {{form.password1}}
+              {{form.password2}}
+              <input
+                type="submit"
+                class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"
+                name="Create User"
+              />
+            </form>
 
             <div class="mt-6 grid grid-cols-3 items-center text-gray-400">
               <hr class="border-gray-400" />
