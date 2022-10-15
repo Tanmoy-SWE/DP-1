@@ -5,8 +5,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('',views.home, name='home'),
-    path('ProgramCoordinatorList/', views.CoordinatorList, name='CoordinatorList'),
-    path('ProgramList/', views.ProgramList, name='ProgramList'),
-    # path('courseInstructorForm/', views.cour_ins_form, name='courseInstructorForm'),
-    # path('coordinatorForm/', views.coordinator, name='coordinatorForm'),
+    path('ProgramCoordinatorList/', views.coordinator_list, name='CoordinatorList'),
+    path('ProgramList/', views.program_list, name='ProgramList'),
 ]

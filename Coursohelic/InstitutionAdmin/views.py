@@ -6,8 +6,8 @@ from django.shortcuts import render
 def home(request):
     return render(request , 'AdminHome.html')
 
-def CoordinatorList(request):
+def coordinator_list(request):
     return render(request, 'ProgramCoordinatorList.html')
 
-def ProgramList(request):
+def program_list(request):
     return render(request, 'ProgramList.html')
