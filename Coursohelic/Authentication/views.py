@@ -9,5 +9,4 @@ def auth(request):
         if form.is_valid():
             form.save()
     context = {'form': form }
-    print(form['institution'])
     return render(request, 'AdminRegistrationPage.html', context)

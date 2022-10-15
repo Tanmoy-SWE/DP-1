@@ -10,3 +10,4 @@ admin.site.register(Course_Session)
 admin.site.register(Department)
 admin.site.register(Course)
 admin.site.register(Program_Outcome)
+
