@@ -12,7 +12,7 @@
           <div class="md:w-1/2 px-8 md:px-16">
             <h2 class="font-bold text-2xl text-[#002D74]">Registration</h2>
             <p class="text-xs mt-4 text-[#002D74]">
-              New Admin?? Create an account
+              New Admin? Create an account
             </p>
 
             <form method="POST" actions="" class="flex flex-col gap-4">
@@ -46,6 +46,8 @@
             </div>
           </div>
 
+         
+
           <!-- image -->
           <div class="md:block hidden w-1/2">
             <img
@@ -54,7 +56,15 @@
             />
           </div>
         </div>
+        
       </section>
+      {% if messages %}  
+          <ul>   
+            {% for message in messages %}  
+                <li>{{ message }}</li>  
+            {% endfor %}  
+          </ul>   
+        {% endif %} 
     </body>
   </head>
 </html>

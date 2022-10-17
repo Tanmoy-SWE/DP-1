@@ -14,6 +14,26 @@ def adminauth(request):
     context = {'form': form }
     return render(request, 'AdminRegistrationPage.html', context)
 
+def coordinatorauth(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('coordinatorlogin')
+    context = {'form': form }
+    return render(request, 'ProgramCoordinatorRegistrationPage.html', context)
+
+def instructorauth(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('instructorlogin')
+    context = {'form': form }
+    return render(request, 'ProgramInstructorRegistrationPage.html', context)
+
 def adminlogin(request):
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -28,6 +48,33 @@ def adminlogin(request):
         context = {}
         return render(request, 'AdminLoginPage.html', context)
 
-    
+def coordinatorlogin(request):
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password = password)
+            if (user is not None) and (user.is_coordinator == 1):
+                login(request, user)
+                return redirect('/institutionAdmin/')
+            else:
+                messages.info(request, "Username or Password is incorrect.")
+        context = {}
+        return render(request, 'ProgramCoordinatorLoginPage.html', context)
+
+def instructorlogin(request):
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password = password)
+            if (user is not None) and (user.is_instructor == 1):
+                login(request, user)
+                return redirect('/institutionAdmin/')
+            else:
+                messages.info(request, "Username or Password is incorrect.")
+        context = {}
+        return render(request, 'ProgramInstructorLoginPage.html', context)
+
 def home(request):
     return render(request , 'LoginPage.html')
