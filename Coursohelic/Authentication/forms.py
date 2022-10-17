@@ -43,7 +43,9 @@ class CreateUserForm(UserCreationForm):
         "placeholder": "Confirm Password"
     }))
 
+    
+
     class Meta:
         model = User
         fields = ['first_name', 'institution', 'email',
-                  'username', 'password1', 'password2', 'is_admin', 'is_coordinator', 'is_instructor']
+                  'username', 'password1', 'password2']
