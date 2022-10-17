@@ -23,8 +23,8 @@ from django.contrib.auth.views import LogoutView,LoginView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Home.urls')),
-    path('institutionAdmin/',include('InstitutionAdmin.urls')),
+    path('auth/',include('Authentication.urls')),
+    path('auth/institutionAdmin/',include('InstitutionAdmin.urls')),
     path('instructor/',include('Instructor.urls')),
     path('coordinator/',include('Coordinator.urls')),
-    path('auth/',include('Authentication.urls'))
 ]
