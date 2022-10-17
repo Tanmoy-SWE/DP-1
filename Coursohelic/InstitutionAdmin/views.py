@@ -17,4 +17,4 @@ def program_list(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('')
+    return redirect('/')

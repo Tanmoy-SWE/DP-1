@@ -15,7 +15,7 @@
               If you are already an Admin, log in
             </p>
 
-            <form action="AdminHome/" method="POST">
+            <form action="" method="POST">
               {% csrf_token %}
               <label for="">Username</label>
               <input type = "text" id = "username" name ="username" placeholder="Enter Your Username : " Required>
@@ -39,7 +39,7 @@
                 class="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
               >
                 <a
-                  href="/auth/AdminRegistrationPage/"
+                  href="/AdminRegistrationPage/"
                   class="w3-bar-item w3-button"
                   >Register</a
                 >
