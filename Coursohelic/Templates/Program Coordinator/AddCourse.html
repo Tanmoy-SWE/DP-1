@@ -20,7 +20,9 @@
         <nav
           class="md:ml-auto flex flex-wrap items-center text-base justify-center"
         >
-          <a href="AdminHome.html" class="mr-5 hover:text-gray-900">Home</a>
+          <a href="CoordinatorHome.html" class="mr-5 hover:text-gray-900"
+            >Home</a
+          >
           <a class="mr-5 hover:text-gray-900">Coordinator Profile</a>
         </nav>
         <button
@@ -43,12 +45,12 @@
     </header>
 
     <section class="text-gray-600 body-font">
-      <div class="container px-5 py-20 mx-auto">
+      <div class="container px-5 py-12 mx-auto">
         <div class="flex flex-col text-center w-full mb-12">
           <h1
             class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
           >
-            Add New Program
+            Add New Course
           </h1>
         </div>
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -56,7 +58,7 @@
             <div class="p-2 w-1/2">
               <div class="relative">
                 <label for="name" class="leading-7 text-sm text-gray-600"
-                  >Program</label
+                  >Course Code</label
                 >
                 <input
                   type="text"
@@ -69,7 +71,20 @@
             <div class="p-2 w-1/2">
               <div class="relative">
                 <label for="email" class="leading-7 text-sm text-gray-600"
-                  >Department</label
+                  >Course Name</label
+                >
+                <input
+                  type="text"
+                  id="department"
+                  name="department"
+                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="email" class="leading-7 text-sm text-gray-600"
+                  >Course Type</label
                 >
                 <input
                   type="text"

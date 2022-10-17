@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Program List</title>
+  </head>
+  <body>
+    <header class="text-gray-600 body-font">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <span class="ml-3 text-xl">Coursohelic</span>
+        </a>
+        <nav
+          class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a href="CoordinatorHome.html" class="mr-5 hover:text-gray-900"
+            >Home</a
+          >
+          <a href="CoordinatorProfile.html" class="mr-5 hover:text-gray-900"
+            >Coordinator Profile</a
+          >
+        </nav>
+        <button
+          class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+        >
+          Logout
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-4 h-4 ml-1"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <!-- component -->
+    <div class="overflow-x-auto">
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-12 mx-auto">
+          <div
+            class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto text-center"
+          >
+            <h1
+              class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
+            >
+              Offered Courses
+            </h1>
+          </div>
+        </div>
+        <div class="container px-1 mt-1 mr-4">
+          <div
+            class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-40"
+          >
+            <button
+              class="flex-shrink-0 text-white bg-green-500 border-0 py-0 px-2 focus:outline-none hover:bg-green-600 rounded text-lg mt-10 sm:mt-0"
+            >
+              <a href="AddCourse.html"> Add Course </a>
+            </button>
+          </div>
+        </div>
+      </section>
+      <div
+        class="min-w-screen min-h-0 flex items-center justify-center font-sans overflow-hidden"
+      >
+        <div class="w-full lg:w-5/6">
+          <div class="bg-white shadow-md rounded my-2">
+            <table class="min-w-max w-full table-auto">
+              <thead>
+                <tr
+                  class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
+                >
+                  <th class="py-3 px-6 text-left">Course Code</th>
+                  <th class="py-3 px-6 text-left">Course Name</th>
+                  <th class="py-3 px-6 text-left">Course Type</th>
+                  <th class="py-3 px-6 text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-600 text-sm font-light">
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                  <td class="py-3 px-6 text-left">
+                    <div class="flex items-center">
+                      <span class="font-medium">CSE 4501</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-6 text-left">
+                    <span>Operating System</span>
+                  </td>
+                  <td class="py-3 px-6 text-left">
+                    <span>Theory</span>
+                  </td>
+                  <td class="py-3 px-6 text-center">
+                    <div class="flex item-center justify-center">
+                      <div
+                        class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                      </div>
+
+                      <div
+                        class="w-4 mr-2 transform text-red-700 hover:text-red-900 hover:scale-110"
+                      >
+                        <a href="DeleteConfirmation.html">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
