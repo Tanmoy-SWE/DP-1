@@ -55,3 +55,10 @@ def addCoordinator(request):
     print(request.user.first_name)
     context = {'coordinator' : coordinator}
     return render(request, 'AvailableCoordinatorList.html', context)
+
+def assignCoordinator(request, pk):
+    programs = Program.objects.filter(created_by = request.user)
+    coordinator = User.objects.get(id = pk)
+    print(coordinator.institution)
+    context = {'programs' : programs , 'coordinator' : coordinator}
+    return render(request, 'AddCoordinator.html', context)

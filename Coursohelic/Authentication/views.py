@@ -7,6 +7,7 @@ from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login
 
+
 # Create your views here.
 def adminauth(request):
     form = CreateUserForm()
@@ -33,6 +34,8 @@ def coordinatorauth(request):
             uobj.is_admin = False
             uobj.is_coordinator = True
             uobj.save()
+            
+        
             
             return redirect('coordinatorlogin')
     context = {'form': form }
