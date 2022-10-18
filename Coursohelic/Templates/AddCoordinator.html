@@ -53,6 +53,7 @@
           <p class="mt-6 leading-relaxed">{{coordinator.instituiton}}</p>
           <p class="leading-relaxed">{{user.instituiton}}</p> {% endcomment %}
           <form action="" method ="POST" class="mt-10">
+            {% csrf_token %}
             <div class="flex w-full justify-center items-end">
               <div
                 class="relative mr-4 lg:w-full xl:w-1/2 w-2/4 md:w-full text-left"
@@ -64,9 +65,10 @@
                   <select
                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state"
+                    name="choice"
                   >
                    {% for program in programs %}
-                    <option>{{program.p_name}}</option>
+                    <option value="{{program.p_name}}">{{program.p_name}}</option>
                    {% endfor %}      
                   </select>
               

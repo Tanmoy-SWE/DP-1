@@ -63,6 +63,8 @@ def addCoordinator(request):
 def assignCoordinator(request, pk):
     programs = Program.objects.filter(created_by = request.user)
     coordinator = User.objects.get(id = pk)
-    print(coordinator.institution)
+    if request.method == "POST":
+        print(request.POST['choice'])
+    
     context = {'programs' : programs , 'coordinator' : coordinator}
     return render(request, 'AddCoordinator.html', context)
