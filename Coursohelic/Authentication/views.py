@@ -33,6 +33,7 @@ def coordinatorauth(request):
             uobj.is_admin = False
             uobj.is_coordinator = True
             uobj.save()
+            
             return redirect('coordinatorlogin')
     context = {'form': form }
     return render(request, 'ProgramCoordinatorRegistrationPage.html', context)

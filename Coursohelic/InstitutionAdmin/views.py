@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import ProgramForm
 from .models import Program
+from Authentication.models import User
 
 
 
@@ -47,3 +48,10 @@ def add_program(request):
 def logout_user(request):
     logout(request)
     return redirect('/')
+
+def addCoordinator(request):
+    coordinator = User.objects.filter(is_coordinator = True, institution = request.user.institution)
+    print(coordinator)
+    print(request.user.first_name)
+    context = {'coordinator' : coordinator}
+    return render(request, 'AvailableCoordinatorList.html', context)
