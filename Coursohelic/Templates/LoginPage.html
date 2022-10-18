@@ -1,138 +1,206 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
   <head>
-    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Home Page</title>
   </head>
   <body>
-    <section class="bg-gray-50 min-h-screen flex items-center justify-center">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap -m-4">
-          <div class="p-4 md:w-1/3">
-            <div
-              class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
-            >
-              <img
-                class="lg:h-48 md:h-36 w-full object-cover object-center"
-                src="https://t3.ftcdn.net/jpg/03/62/56/24/360_F_362562495_Gau0POzcwR8JCfQuikVUTqzMFTo78vkF.jpg"
-                alt="blog"
-              />
-              <div class="p-6">
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
-                  Admin
-                </h1>
-                <p class="leading-relaxed mb-3">
-                  Create department and assign Coordinator for each department
-                </p>
-                <div class="flex items-center flex-wrap">
-                  <a href="/AdminLogin/"
-                    class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-                    >Login
-                    <svg
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                  <span
-                    class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                  >
-                  </span>
-                </div>
-              </div>
+    <header class="bg-white dark:bg-white-900 mt-8">
+      <div class="container px-16 py-16 mx-auto">
+        <div class="items-center lg:flex">
+          <div class="w-full lg:w-1/2 animate__animated animate__fadeInLeft">
+            <div class="lg:max-w-lg">
+              <h1
+                class="text-2xl font-semibold text-blue-800 uppercase dark:text-blue lg:text-3xl"
+              >
+                Coursohelic
+              </h1>
+
+              <p class="mt-2 text-gray-600 dark:text-gray-900">
+                An online outcome based education platform
+              </p>
+
+              <button
+                class="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+              >
+                <a href="#login">Get started</a>
+              </button>
             </div>
           </div>
-          <div class="p-4 md:w-1/3">
-            <div
-              class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
-            >
-              <img
-                class="lg:h-48 md:h-36 w-full object-cover object-center"
-                src="https://t3.ftcdn.net/jpg/03/16/92/96/360_F_316929684_tjD9fs3q8T2mTTRFqGEPDzyku7WvMu56.jpg"
-                alt="blog"
-              />
-              <div class="p-6">
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
-                  Program Coordinator
-                </h1>
-                <p class="leading-relaxed mb-3">
-                  Create courses, assign courses to the Instructors and provide
-                  course outline
-                </p>
-                <div class="flex items-center flex-wrap">
-                  <a
-                    href="/CoordinatorLogin/"
-                    class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-                    >Login
-                    <svg
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                  <span
-                    class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                  >
-                  </span>
-                </div>
-              </div>
-            </div>
+
+          <div
+            class="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2 animate__animated animate__fadeInRight"
+          >
+            <img
+              class="w-full h-full lg:max-w-2xl"
+              src="https://img.freepik.com/free-vector/happy-women-learning-language-online-isolated-flat-vector-illustration-cartoon-female-characters-taking-individual-lessons-through-messenger-education-digital-technology-concept_74855-10088.jpg?w=1380&t=st=1666091314~exp=1666091914~hmac=c89092b558ffde6a8eca25dbdf6c604bdb86d9edf2b2a0b0435cd754e5fe24e6"
+              alt="Catalogue-pana.svg"
+            />
           </div>
-          <div class="p-4 md:w-1/3">
-            <div
-              class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
-            >
+        </div>
+      </div>
+    </header>
+    <section id="login" class="bg-white dark:bg-white">
+      <div class="container px-6 py-10 mx-auto">
+        <div class="text-center">
+          <h1
+            class="text-3xl text-center font-semibold text-blue-800 capitalize lg:text-4xl dark:text-blue"
+          >
+            <span class="underline decoration-blue-500">LOGIN</span>
+          </h1>
+
+          <!-- <p class="max-w-lg mx-auto mt-4 text-black">
+            Salami mustard spice tea fridge authentic Chinese food dish salt
+            tasty liquor. Sweet savory foodtruck pie.
+          </p> -->
+        </div>
+
+        <div
+          class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2 xl:grid-cols-3"
+        >
+          <div>
+            <div class="relative">
               <img
-                class="lg:h-48 md:h-36 w-full object-cover object-center"
-                src="https://thumbs.dreamstime.com/b/icon-teaching-teach-teaching-142376309.jpg"
-                alt="blog"
+                class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+                src="https://img.freepik.com/free-vector/admin-concept-illustration_114360-3427.jpg?w=826&t=st=1666106687~exp=1666107287~hmac=58ded704c5c04ff9f6ce4eb3a6ef8901e4bf4366923150325c0472f72f356c8a"
+                alt="admin"
               />
-              <div class="p-6">
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
-                  Program Instructor
-                </h1>
-                <p class="leading-relaxed mb-3">
-                  Map Course Outcome and Program Outcome, maintain student
-                  academic activities
-                </p>
-                <div class="flex items-center flex-wrap">
-                  <a
-                    href="/InstructorLogin/"
-                    class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
-                    >Login
-                    <svg
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                  <span
-                    class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200"
-                  >
-                  </span>
-                </div>
-              </div>
             </div>
+
+            <h1 class="mt-6 text-xl font-semibold text-blue-800 dark:text-blue">
+              Admin
+            </h1>
+
+            <hr class="w-32 my-6 text-blue-500" />
+
+            <p class="text-sm text-gray-500 dark:text-black">
+              Create department and assign Coordinator for each department
+            </p>
+            <button
+              class="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+            >
+              <a href="">Login</a>
+            </button>
+          </div>
+
+          <div>
+            <div class="relative">
+              <img
+                class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+                src="https://img.freepik.com/free-vector/software-development-team-abstract-concept-illustration_335657-3872.jpg?w=826&t=st=1666107263~exp=1666107863~hmac=74f72d3e77b0feacf6cbe5c400b3714cd851e65c4510c429b15a04c36fd74698"
+                alt=""
+              />
+            </div>
+
+            <h1 class="mt-6 text-xl font-semibold text-blue-800 dark:text-blue">
+              Program Coordinator
+            </h1>
+
+            <hr class="w-32 my-6 text-blue-500" />
+
+            <p class="text-sm text-gray-500 dark:text-black">
+              Create courses, assign courses to the Instructors and provide
+              course outline
+            </p>
+            <button
+              class="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+            >
+              <a href="">Login</a>
+            </button>
+          </div>
+
+          <div>
+            <div class="relative">
+              <img
+                class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+                src="https://img.freepik.com/free-vector/mathematics-concept-illustration_114360-3972.jpg?w=826&t=st=1666107346~exp=1666107946~hmac=a91320b567a67d9553e603542151b289717c3f83b279ead33be17c38ce1525d6"
+                alt=""
+              />
+            </div>
+
+            <h1 class="mt-6 text-xl font-semibold text-blue-800 dark:text-blue">
+              Program Instructor
+            </h1>
+
+            <hr class="w-32 my-6 text-blue-500" />
+
+            <p class="text-sm text-gray-500 dark:text-black">
+              Map Course Outcome and Program Outcome, maintain student academic
+              activities
+            </p>
+            <button
+              class="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+            >
+              <a href="">Login</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white dark:bg-white-900">
+      <div class="container px-4 py-10 mx-auto">
+        <h1
+          class="text-3xl text-center font-semibold text-blue-800 capitalize lg:text-4xl dark:text-blue"
+        >
+          <span class="underline decoration-blue-500">FEATURES</span>
+        </h1>
+        <div
+          class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3"
+        >
+          <div
+            class="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl"
+          >
+            <h1
+              class="text-2xl font-semibold text-blue-700 capitalize dark:text-blue"
+            >
+              Mapping Learning Outcomes
+            </h1>
+
+            <p class="text-gray-500 dark:text-black">
+              Enables faculty members to monitor, track & accurately map
+              student’s performance in terms of PO-CO & assessments for
+              continuous outcome improvement.
+            </p>
+          </div>
+
+          <div
+            class="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl"
+          >
+            <h1
+              class="text-2xl font-semibold text-blue-700 capitalize dark:text-blue"
+            >
+              Data Accuracy & Report Accuracy
+            </h1>
+
+            <p class="text-gray-500 dark:text-black">
+              Maintains data quality & ensures error-free data to generate
+              reports with high degree of precision and thus, strengthens
+              compliance efforts.
+            </p>
+          </div>
+          <div
+            class="p-8 space-y-3 border-2 border-blue-400 dark:border-blue-300 rounded-xl"
+          >
+            <h1
+              class="text-2xl font-semibold text-blue-700 capitalize dark:text-blue"
+            >
+              Accreditation Checklist Feature
+            </h1>
+
+            <p class="text-gray-500 dark:text-black">
+              A checklist consisting of all the important documents required for
+              the accreditation of an institution. This checklist marks a
+              specific requirement as checked when the relevant materials for
+              that requirement are uploaded.
+            </p>
           </div>
         </div>
       </div>

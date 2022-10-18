@@ -39,32 +39,27 @@
                 type="submit"
                 class="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
               >
-                <a href="/AdminLogin/" class="w3-bar-item w3-button"
-                  >Login</a
-                >
+                <a href="/AdminLogin/" class="w3-bar-item w3-button">Login</a>
               </button>
             </div>
           </div>
-
-         
 
           <!-- image -->
           <div class="md:block hidden w-1/2">
             <img
               class="rounded-2xl"
-              src="https://images.unsplash.com/photo-1632406895715-c9521b447fab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGFkbWlufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+              src="https://img.freepik.com/free-vector/admin-concept-illustration_114360-3427.jpg?w=826&t=st=1666106687~exp=1666107287~hmac=58ded704c5c04ff9f6ce4eb3a6ef8901e4bf4366923150325c0472f72f356c8a"
             />
           </div>
         </div>
-        
       </section>
-      {% if messages %}  
-          <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-            {% endfor %}  
-          </ul>   
-        {% endif %} 
+      {% if messages %}
+      <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </body>
   </head>
 </html>
