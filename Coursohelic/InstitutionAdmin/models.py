@@ -13,10 +13,9 @@ class Program(models.Model):
     description = models.TextField(max_length = 300, default=None)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     
-#class All_Coordinators(models.Model):
- #  p_id = models.AutoField(primary_key = True)
-  # coordinator = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-   #isAssigned = models.BooleanField(default=False)
+class All_Coordinators(models.Model):
+    coordinator = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    isAssigned = models.BooleanField(default=False)
    
 #class Assign_Program(models.Model):
  #   coordinator = models.ForeignKey(All_Coordinators, on_delete=models.CASCADE)

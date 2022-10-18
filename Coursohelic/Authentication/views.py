@@ -3,6 +3,7 @@ from pickle import TRUE
 from django.shortcuts import render, redirect
 
 from Authentication.models import User
+from InstitutionAdmin.models import All_Coordinators
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login
@@ -35,6 +36,8 @@ def coordinatorauth(request):
             uobj.is_coordinator = True
             uobj.save()
             
+            coords = All_Coordinators(coordinator = uobj, isAssigned = False)
+            coords.save()
         
             
             return redirect('coordinatorlogin')
