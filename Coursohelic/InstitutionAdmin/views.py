@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import ProgramForm
-from .models import All_Coordinators, Program
+from .models import All_Coordinators, Assign_Program, Program
 from Authentication.models import User
 
 
@@ -64,7 +64,17 @@ def assignCoordinator(request, pk):
     programs = Program.objects.filter(created_by = request.user)
     coordinator = User.objects.get(id = pk)
     if request.method == "POST":
-        print(request.POST['choice'])
-    
+        pro_name = request.POST['choice']
+        program = Program.objects.get(p_name = pro_name)
+        coord = Assign_Program(coordinator = coordinator, program = program)
+        coord.save()
+
+        temp = All_Coordinators.objects.get(coordinator = coordinator)
+        temp.isAssigned = True
+        temp.save()
+
+        return redirect("/institutionAdmin/")
+
+        
     context = {'programs' : programs , 'coordinator' : coordinator}
     return render(request, 'AddCoordinator.html', context)

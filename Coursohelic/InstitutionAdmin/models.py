@@ -18,5 +18,5 @@ class All_Coordinators(models.Model):
     isAssigned = models.BooleanField(default=False)
    
 class Assign_Program(models.Model):
-    coordinator = models.ForeignKey(All_Coordinators, on_delete=models.CASCADE)
+    coordinator = models.ForeignKey(User, on_delete=models.CASCADE)
     program = models.ForeignKey(Program, on_delete=models.CASCADE)
