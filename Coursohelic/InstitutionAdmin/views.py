@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import ProgramForm
-from .models import Program
+from .models import All_Coordinators, Program
 from Authentication.models import User
 
 
@@ -50,10 +50,14 @@ def logout_user(request):
     return redirect('/')
 
 def addCoordinator(request):
-    coordinator = User.objects.filter(is_coordinator = True, institution = request.user.institution)
-    print(coordinator)
+    #coordinator = User.objects.filter(is_coordinator = True, institution = request.user.institution)
+    coordinator = All_Coordinators.objects.filter(isAssigned=False)
+    coordinators = []
+    for i in range(0, len(coordinator)):
+        coordinators.append(coordinator[i].coordinator)
+    print(coordinators)
     print(request.user.first_name)
-    context = {'coordinator' : coordinator}
+    context = {'coordinator' : coordinators}
     return render(request, 'AvailableCoordinatorList.html', context)
 
 def assignCoordinator(request, pk):
