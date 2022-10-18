@@ -19,15 +19,10 @@
               {% csrf_token %} {{form.username}} {{form.first_name}}
               {{form.institution}} {{form.email}} {{form.password1}}
               {{form.password2}}
-              
-                
-                  {% comment %} <div class="alert-title font-semibold text-lg text-red-800">
-                    Error
-                  </div> {% endcomment %}
-                  
-                  <div style='color: red'>{{form.errors.username}} {{form.errors.password2}}</div>
-                  
-                
+
+              <div style="color: red">
+                {{form.errors.username}} {{form.errors.password2}}
+              </div>
 
               <input
                 type="submit"

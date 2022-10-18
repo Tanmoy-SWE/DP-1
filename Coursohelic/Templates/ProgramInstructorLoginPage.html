@@ -16,6 +16,7 @@
             </p>
 
             <form action="" class="flex flex-col gap-4">
+              {% csrf_token %}
               <input
                 class="p-2 mt-8 rounded-xl"
                 type="username"
@@ -30,6 +31,9 @@
                   placeholder="Password"
                 />
               </div>
+              {% for message in messages %}
+              <div style="color: red">{{message}}</div>
+              {% endfor %}
               <button
                 type="submit"
                 class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"
