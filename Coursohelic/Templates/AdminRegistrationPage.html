@@ -16,15 +16,12 @@
             </p>
 
             <form method="POST" actions="" class="flex flex-col gap-4">
-              {% csrf_token %} 
-              {{form.errors.username}}
-              {{form.username}} 
-              {{form.first_name}}
-              {{form.institution}} 
-              {{form.email}} 
-              {{form.password1}}
+              {% csrf_token %} {{form.username}} {{form.first_name}}
+              {{form.institution}} {{form.email}} {{form.password1}}
               {{form.password2}}
-              {{form.errors.password2}}
+              <div style="color: red">
+                {{form.errors.username}} {{form.errors.password2}}
+              </div>
               <input
                 type="submit"
                 class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"
@@ -59,13 +56,6 @@
           </div>
         </div>
       </section>
-      {% if messages %}
-      <ul>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
     </body>
   </head>
 </html>
