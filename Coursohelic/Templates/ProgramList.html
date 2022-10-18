@@ -30,7 +30,7 @@
         <button
           class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
         >
-          Logout
+          <a href="/institutionAdmin/logout/"> Logout </a>
           <svg
             fill="none"
             stroke="currentColor"
@@ -126,7 +126,7 @@
                       <div
                         class="w-4 mr-2 transform text-red-700 hover:text-red-900 hover:scale-110"
                       >
-                        <a href="DeleteConfirmation.html">
+                        <a href="{% url 'delete_program' program.p_id %}">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"

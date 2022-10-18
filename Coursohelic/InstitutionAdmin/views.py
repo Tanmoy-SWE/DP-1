@@ -19,6 +19,11 @@ def program_list(request):
     list_of_programs = Program.objects.filter(created_by=request.user)
     return render(request, 'ProgramList.html', {'programs': list_of_programs})
 
+def delete_program(request, pk):
+    program = Program.objects.get(p_id=pk)
+    program.delete()
+    return redirect('/institutionAdmin/ProgramList/')
+
 
 def add_program(request):
     
