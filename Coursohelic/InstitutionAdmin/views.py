@@ -2,6 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import ProgramForm
+from .models import Program
 
 
 
@@ -18,14 +19,20 @@ def program_list(request):
     return render(request, 'ProgramList.html')
 
 def add_program(request):
-    form = ProgramForm()
+    
     if request.method == 'POST':
-        form = ProgramForm(request.POST)
-        if form.is_valid():
-            form.save()
+        user = request.user
+        print(user)
+        name = request.POST['program']
+        department = request.POST['department']
+        description = request.POST['message']
+        total_credit = request.POST['total_credit']
 
-    context = {'form': form}
-    return render(request, 'AddProgram.html', context)
+        new_program = Program(p_name = name, department = department, description = description, total_credit = total_credit, created_by = user)
+        new_program.save()
+        return redirect('/institutionAdmin/ProgramList/')
+
+    return render(request, 'AddProgram.html')
     
     
     
