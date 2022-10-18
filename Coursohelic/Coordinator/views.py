@@ -15,3 +15,6 @@ def coordinatorHome(request):
 def logout_user(request):
     logout(request)
     return redirect('/')
+
+def coursesList(request):
+    return render(request, 'Program Coordinator/CourseList.html')
