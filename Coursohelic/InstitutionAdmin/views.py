@@ -19,7 +19,14 @@ def program_list(request):
 
 def add_program(request):
     form = ProgramForm()
+    if request.method == 'POST':
+        form = ProgramForm(request.POST)
+        if form.is_valid():
+            form.save()
+
     context = {'form': form}
+    return render(request, 'AddProgram.html', context)
+    
     
     
 
