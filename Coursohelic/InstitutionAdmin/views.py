@@ -16,7 +16,9 @@ def coordinator_list(request):
     return render(request, 'ProgramCoordinatorList.html')
 
 def program_list(request):
-    return render(request, 'ProgramList.html')
+    list_of_programs = Program.objects.filter(created_by=request.user)
+    return render(request, 'ProgramList.html', {'programs': list_of_programs})
+
 
 def add_program(request):
     
@@ -35,7 +37,7 @@ def add_program(request):
     return render(request, 'AddProgram.html')
     
     
-    
+
 
 def logout_user(request):
     logout(request)
