@@ -18,7 +18,15 @@ def logout_user(request):
     return redirect('/')
 
 def coursesList(request):
-    return render(request, 'Program Coordinator/CourseList.html')
+    courses = Course.objects.all()
+    courList = []
+    for i in range(0,len(courses)):
+        if (courses[i].created_by == request.user):
+                courList.append(courses[i])
+
+    print(courList)
+    context = {'courses': courList}
+    return render(request, 'Program Coordinator/CourseList.html', context)
 
 def addCourse(request):
     
