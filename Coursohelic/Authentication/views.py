@@ -74,7 +74,7 @@ def coordinatorlogin(request):
             user = authenticate(request, username=username, password = password)
             if (user is not None) and (user.is_coordinator) == 1:
                 login(request, user)
-                return redirect('/institutionAdmin/')
+                return redirect('/coordinator/')
             else:
                 messages.info(request, "Username or Password is incorrect.")
         context = {}

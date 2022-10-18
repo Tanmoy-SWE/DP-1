@@ -4,7 +4,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-     path('', views.login, name='ProgramCoordinatorHomePage'),
+     path('', views.coordinatorHome, name='ProgramCoordinatorHomePage'),
+     path('logout/', views.logout_user, name='logout'),
      
      
 ]

@@ -15,24 +15,30 @@
               If you are already a Coordinator, log in
             </p>
 
-            <form action="" class="flex flex-col gap-4">
+            <form action="" method="POST" class="flex flex-col gap-4">
+              {% csrf_token %}
               <input
                 class="p-2 mt-8 rounded-xl"
-                type="username"
+                type="text"
+                id="username"
                 name="username"
                 placeholder="Username"
+                required
               />
               <div class="relative">
                 <input
                   class="p-2 rounded-xl border w-full"
                   type="password"
+                  id="password"
                   name="password"
                   placeholder="Password"
+                  required
                 />
               </div>
+
               <button
-                type="submit"
                 class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"
+                type="submit"
               >
                 Login
               </button>
