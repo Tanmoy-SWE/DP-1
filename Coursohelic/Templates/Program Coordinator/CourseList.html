@@ -70,7 +70,7 @@
             <button
               class="flex-shrink-0 text-white bg-green-500 border-0 py-0 px-2 focus:outline-none hover:bg-green-600 rounded text-lg mt-10 sm:mt-0"
             >
-              <a href="AddCourse.html"> Add Course </a>
+              <a href={% url 'addCourse'%}> Add Course </a>
             </button>
           </div>
         </div>
@@ -86,8 +86,8 @@
                   class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
                 >
                   <th class="py-3 px-6 text-left">Course Code</th>
+                  <th class="py-3 px-6 text-left">Credit</th>
                   <th class="py-3 px-6 text-left">Course Name</th>
-                  <th class="py-3 px-6 text-left">Course Type</th>
                   <th class="py-3 px-6 text-center">Actions</th>
                 </tr>
               </thead>
