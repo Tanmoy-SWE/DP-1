@@ -14,7 +14,20 @@ def home(request):
     return render(request , 'AdminHome.html')
 
 def coordinator_list(request):
-    return render(request, 'ProgramCoordinatorList.html')
+    coordinator = All_Coordinators.objects.filter(isAssigned=True)
+    coordinators = []
+    for i in range(0, len(coordinator)):
+        if (coordinator[i].coordinator.institution == request.user.institution):
+            coordinators.append(coordinator[i].coordinator)
+    
+    program = []
+    for i in range(0, len(coordinators)):
+        temp = Assign_Program.objects.get(coordinator = coordinators[i])
+        program.append(temp)
+
+    print(coordinators)
+    context = {'programs': program}
+    return render(request, 'ProgramCoordinatorList.html', context)
 
 def program_list(request):
     list_of_programs = Program.objects.filter(created_by=request.user)
@@ -52,9 +65,11 @@ def logout_user(request):
 def addCoordinator(request):
     #coordinator = User.objects.filter(is_coordinator = True, institution = request.user.institution)
     coordinator = All_Coordinators.objects.filter(isAssigned=False)
+    print(coordinator)
     coordinators = []
     for i in range(0, len(coordinator)):
-        coordinators.append(coordinator[i].coordinator)
+        if (coordinator[i].coordinator.institution == request.user.institution):
+            coordinators.append(coordinator[i].coordinator)
     print(coordinators)
     print(request.user.first_name)
     context = {'coordinator' : coordinators}
@@ -73,8 +88,9 @@ def assignCoordinator(request, pk):
         temp.isAssigned = True
         temp.save()
 
-        return redirect("/institutionAdmin/")
+        return redirect("/institutionAdmin/ProgramCoordinatorList/")
 
-        
+
+
     context = {'programs' : programs , 'coordinator' : coordinator}
     return render(request, 'AddCoordinator.html', context)
