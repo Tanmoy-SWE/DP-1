@@ -12,5 +12,5 @@ urlpatterns = [
     path('ProgramList/Delete_Program/<pk>', views.delete_program, name='delete_program'),
     path('ProgramCoordinatorList/addCoordinator/',views.addCoordinator, name='addCoordinator'),
     path('ProgramCoordinatorList/addCoordinator/assignCoordinator/<pk>/', views.assignCoordinator, name='assignCoordinator'),
-
+    path('DeAssignCoordinator/<pk>/', views.deassign_coordinator, name='deassign_coordinator')
 ]

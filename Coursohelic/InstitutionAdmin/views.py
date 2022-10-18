@@ -24,6 +24,7 @@ def coordinator_list(request):
     for i in range(0, len(coordinators)):
         temp = Assign_Program.objects.get(coordinator = coordinators[i])
         program.append(temp)
+        a = 5
 
     print(coordinators)
     context = {'programs': program}
@@ -74,6 +75,18 @@ def addCoordinator(request):
     print(request.user.first_name)
     context = {'coordinator' : coordinators}
     return render(request, 'AvailableCoordinatorList.html', context)
+
+def deassign_coordinator(request, pk):
+    coordinator1 = Assign_Program.objects.get(id = pk)
+    coordinator_info = coordinator1.coordinator 
+    coordinator_object = All_Coordinators.objects.get(coordinator = coordinator_info)
+    coordinator_object.isAssigned = False
+    coordinator_object.save()
+    coordinator1.delete()
+    return redirect('/institutionAdmin/ProgramCoordinatorList/')
+
+    
+
 
 def assignCoordinator(request, pk):
     programs = Program.objects.filter(created_by = request.user)
