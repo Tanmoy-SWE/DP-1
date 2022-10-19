@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import Course
 from Authentication.models import User
+from InstitutionAdmin.models import All_Coordinators
 # Create your views here.
  
 def login(request):
@@ -13,7 +14,10 @@ def registration(request):
    return render(request , 'ProgramCoordinatorRegistrationPage.html')
  
 def coordinatorHome(request):
-   return render(request, 'Program Coordinator/CoordinatorHome.html')
+   coordinator = All_Coordinators.objects.get(coordinator=request.user)
+   if coordinator.isAssigned == True:
+      return render(request, 'Program Coordinator/CoordinatorHome.html')
+   return render(request, 'Program Coordinator/NotVerified.html')
  
 def logout_user(request):
    logout(request)

@@ -9,6 +9,5 @@ urlpatterns = [
      path('courseList/', views.coursesList, name='courseList'),
      path('addCourse/', views.addCourse, name='addCourse'),
      path('deleteCourse/<pk>', views.delete_course, name='delete_course'),
-     path('instructorList/', views.instructor_list, name='instructor_list')
-
+     path('instructorList/', views.instructor_list, name='instructor_list'),
 ]
