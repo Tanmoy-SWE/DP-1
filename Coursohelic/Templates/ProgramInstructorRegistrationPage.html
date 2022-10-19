@@ -21,54 +21,20 @@
               New Instructor?? Create an account
             </p>
 
-            <form action="" class="flex flex-col gap-4">
-              <input
-                class="p-2 mt-8 rounded-xl"
-                type="name"
-                name="name"
-                placeholder="Name"
-              />
-              <input
-                class="p-2 mt-1 rounded-xl"
-                type="username"
-                name="username"
-                placeholder="Username"
-              />
-              <input
-                class="p-2 mt-1 rounded-xl"
-                type="email"
-                name="email"
-                placeholder="Email"
-              />
-              <input
-                class="p-2 mt-1 rounded-xl"
-                type="institution"
-                name="institution"
-                placeholder="Institution"
-              />
-              <div class="relative">
-                <input
-                  class="p-2 rounded-xl border w-full"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                />
+            <form method="POST" actions="" class="flex flex-col gap-4">
+              {% csrf_token %} {{form.username}} {{form.first_name}}
+              {{form.institution}} {{form.email}} {{form.password1}}
+              {{form.password2}}
+              <div style="color: red">
+                {{form.errors.username}} {{form.errors.password2}}
               </div>
-              <div class="relative">
-                <input
-                  class="p-2 rounded-xl border w-full"
-                  type="confirmPassword"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                />
-              </div>
-              <button
+              <input
                 type="submit"
                 class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"
-              >
-                Register
-              </button>
+                name="Create User"
+              />
             </form>
+
 
             <div class="mt-6 grid grid-cols-3 items-center text-gray-400">
               <hr class="border-gray-400" />

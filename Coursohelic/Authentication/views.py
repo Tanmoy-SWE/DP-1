@@ -95,7 +95,7 @@ def instructorlogin(request):
             user = authenticate(request, username=username, password = password)
             if (user is not None) and (user.is_instructor == 1):
                 login(request, user)
-                return redirect('/institutionAdmin/')
+                return redirect('/instructor/')
             else:
                 messages.info(request, "Username or Password is incorrect.")
         context = {}
