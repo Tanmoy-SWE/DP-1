@@ -3,7 +3,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import Course
- 
+from Authentication.models import User
 # Create your views here.
  
 def login(request):
@@ -51,3 +51,10 @@ def delete_course(request, pk):
        course = Course.objects.get(c_id = pk)
        course.delete()
        return redirect('/coordinator/courseList')
+
+def instructor_list(request):
+   instructor = User.objects.filter(institution = request.user.institution, is_instructor = True)
+   print(instructor)
+   context = {'instructor': instructor}
+   return render(request, 'Program Coordinator/InstructorList.html', context)
+
