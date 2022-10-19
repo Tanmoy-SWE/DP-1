@@ -42,7 +42,7 @@ def addCourse(request):
        outline = request.POST['course_outline']
        print(courseCode)
        new_course = Course(c_code = courseCode, c_name = courseName, total_credit= credit,
-                           description=desc, course_outline = outline, created_by=user)
+                           description=desc, created_by=user, course_outline = outline)
        new_course.save()
        return redirect('/coordinator/courseList/')
   
