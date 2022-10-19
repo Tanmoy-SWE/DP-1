@@ -1,8 +1,9 @@
 
 
+from site import USER_SITE
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .models import Course
+from .models import AssignedCourses, Course
 from Authentication.models import User
 from InstitutionAdmin.models import All_Coordinators
 # Create your views here.
@@ -61,4 +62,23 @@ def instructor_list(request):
    print(instructor)
    context = {'instructor': instructor}
    return render(request, 'Program Coordinator/InstructorList.html', context)
+
+def assign_instructor(request):
+         courses = Course.objects.all()
+         instructors = User.objects.all()
+         if request.method == "POST":
+            course = request.POST['choice']
+            instr = request.POST['choice2']
+            c1 = Course.objects.get(c_name = course)
+            c2 = User.objects.get(id = instr)
+            
+            
+            assign = AssignedCourses(course = c1, instructor = c2)
+            assign.save()
+            return redirect("/coordinator/")
+      
+      
+      
+         context = {'courses' : courses , 'instructors' : instructors}
+         return render(request, 'Program Coordinator/AssignCourse.html', context)
 
