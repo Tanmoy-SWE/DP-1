@@ -9,7 +9,6 @@ class Course(models.Model):
    c_name = models.CharField(max_length = 200, default=None)
    total_credit = models.FloatField(default=0)
    description = models.TextField(max_length = 300, default=None)
-   course_outline = models.FileField(upload_to='static/image', blank=True, null=True)
    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
   
  
