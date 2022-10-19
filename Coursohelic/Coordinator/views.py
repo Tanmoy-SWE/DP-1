@@ -47,4 +47,7 @@ def addCourse(request):
   
    return render(request, 'Program Coordinator/AddCourse.html')
  
-
+def delete_course(request, pk):
+       course = Course.objects.get(c_id = pk)
+       course.delete()
+       return redirect('/coordinator/courseList')
