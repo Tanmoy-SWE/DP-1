@@ -12,5 +12,10 @@ urlpatterns = [
     path('ProgramList/Delete_Program/<pk>', views.delete_program, name='delete_program'),
     path('ProgramCoordinatorList/addCoordinator/',views.addCoordinator, name='addCoordinator'),
     path('ProgramCoordinatorList/addCoordinator/assignCoordinator/<pk>/', views.assignCoordinator, name='assignCoordinator'),
-    path('DeAssignCoordinator/<pk>/', views.deassign_coordinator, name='deassign_coordinator')
+    path('DeAssignCoordinator/<pk>/', views.deassign_coordinator, name='deassign_coordinator'),
+    path('coordinator_confirmation/<pk>/', views.coordinator_confirmation, name='coordinator_confirmation'),
+    path('go_back', views.go_back, name="go_back"),
+    path('program_confirmation/<pk>/', views.program_confirmation, name="program_confirmation"),
+    path('go_back_program', views.go_back_program,  name="go_back_program")
+    
 ]

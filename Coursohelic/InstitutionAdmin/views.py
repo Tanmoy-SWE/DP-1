@@ -85,6 +85,18 @@ def deassign_coordinator(request, pk):
     coordinator1.delete()
     return redirect('/institutionAdmin/ProgramCoordinatorList/')
 
+def coordinator_confirmation(request, pk):
+
+    context = {'pk' : pk}
+    return render(request, 'DeleteConfirmation.html', context)
+
+def go_back(request):
+    return redirect('ProgramCoordinatorList/')
+
+def go_back_program(request):
+    return redirect('ProgramList/')
+
+
     
 
 
@@ -107,3 +119,9 @@ def assignCoordinator(request, pk):
 
     context = {'programs' : programs , 'coordinator' : coordinator}
     return render(request, 'AddCoordinator.html', context)
+
+
+def program_confirmation(request, pk):
+    
+    context = {'pk' : pk}
+    return render(request, 'DeleteConfirmationProgram.html', context)

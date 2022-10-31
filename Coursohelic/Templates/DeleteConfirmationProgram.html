@@ -66,7 +66,7 @@
         </div>
 
         <div class="flex items-center mt-3">
-          <form method="POST" action="{% url 'go_back' %}">
+          <form method="POST" action="{% url 'go_back_program' %}">
             {% csrf_token %}
           <button
             class="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
@@ -74,7 +74,7 @@
             Cancel
           </button>
         </form>
-          <form method="POST" action="{% url 'deassign_coordinator' pk %}">
+          <form method="POST" action="{% url 'delete_program' pk %}">
             {% csrf_token %}
           <button
             type="submit"
