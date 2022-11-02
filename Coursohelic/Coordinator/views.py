@@ -64,8 +64,8 @@ def instructor_list(request):
    return render(request, 'Program Coordinator/InstructorList.html', context)
 
 def assign_instructor(request):
-         courses = Course.objects.all()
-         instructors = User.objects.all()
+         courses = Course.objects.filter(created_by = request.user)
+         instructors = User.objects.filter(institution = request.user.institution, is_instructor = True)
          if request.method == "POST":
             course = request.POST['choice']
             instr = request.POST['choice2']
@@ -82,3 +82,9 @@ def assign_instructor(request):
          context = {'courses' : courses , 'instructors' : instructors}
          return render(request, 'Program Coordinator/AssignCourse.html', context)
 
+def confirm_course(request, pk):
+   context = {"pk": pk}
+   return render(request, "Program Coordinator/DeleteConfirmationCourse.html", context)
+
+def go_back_course(request):
+   return redirect("/coordinator/courseList/")

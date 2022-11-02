@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from Coordinator.models import AssignedCourses
 
 # Create your views here.
 def login(request):
@@ -13,6 +14,12 @@ def instructorHome(request):
 def logout_user(request):
     logout(request)
     return redirect('/')
+
+def course_list(request):
+    
+    c1 = AssignedCourses.objects.filter(instructor = request.user)
+    context = {"courses": c1}
+    return render(request, 'Program Instructor/AssignedCourse.html', context)
 
 
 # def instructorList(request):

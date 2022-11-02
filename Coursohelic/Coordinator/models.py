@@ -10,6 +10,7 @@ class Course(models.Model):
    total_credit = models.FloatField(default=0)
    description = models.TextField(max_length = 300, default=None)
    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+   is_assigned = models.BooleanField(default = False)
   
  
 
