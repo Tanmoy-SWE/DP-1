@@ -1,11 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Add Program</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
-      href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <title>Edit Course</title>
   </head>
   <body>
     <header class="text-gray-600 body-font">
@@ -20,7 +24,7 @@
         <nav
           class="md:ml-auto flex flex-wrap items-center text-base justify-center"
         >
-          <a href="/institutionAdmin/" class="mr-5 hover:text-gray-900">Home</a>
+          <a href="/instructor/" class="mr-5 hover:text-gray-900">Home</a>
           <a class="mr-5 hover:text-gray-900">{{user.first_name}}</a>
         </nav>
         <button
@@ -41,16 +45,35 @@
         </button>
       </div>
     </header>
-
-    <section class="text-gray-600 body-font">
-      <div class="container px-5 py-20 mx-auto">
-        <div class="flex flex-col text-center w-full mb-12">
-          <h1
-            class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
+    <div class="overflow-x-auto animate__animated animate__zoomIn">
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-12 mx-auto">
+          <div
+            class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto text-center"
           >
-            Add New Program
-          </h1>
+            <h1
+              class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
+            >
+              Course Code
+            </h1>
+            <h1
+              class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
+            >
+              Course Name
+            </h1>
+          </div>
         </div>
+        <!-- <div class="container px-1 mt-1 mr-4">
+          <div
+            class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-40"
+          >
+            <button
+              class="flex-shrink-0 text-white bg-green-500 border-0 py-0 px-2 focus:outline-none hover:bg-green-600 rounded text-lg mt-10 sm:mt-0"
+            >
+              <a href=""> Add CO </a>
+            </button>
+          </div>
+        </div> -->
         <form method="POST" action="">
           {% csrf_token %}
           <div class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -58,7 +81,7 @@
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="name" class="leading-7 text-sm text-gray-600"
-                    >Program</label
+                    >CO</label
                   >
                   <input
                     type="text"
@@ -68,23 +91,11 @@
                   />
                 </div>
               </div>
-              <div class="p-2 w-1/2">
-                <div class="relative">
-                  <label for="email" class="leading-7 text-sm text-gray-600"
-                    >Department</label
-                  >
-                  <input
-                    type="text"
-                    id="department"
-                    name="department"
-                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                  />
-                </div>
-              </div>
+
               <div class="p-2 w-full">
                 <div class="relative">
                   <label for="message" class="leading-7 text-sm text-gray-600"
-                    >Description</label
+                    >Course Outcome</label
                   >
                   <textarea
                     id="message"
@@ -96,7 +107,7 @@
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="email" class="leading-7 text-sm text-gray-600"
-                    >Total Credit</label
+                    >CO Marks</label
                   >
 
                   <input
@@ -119,9 +130,7 @@
             </div>
           </div>
         </form>
-      </div>
-    </section>
-    <script src="https://unpkg.com/flowbite@1.5.3/dist/datepicker.js"></script>
-    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+      </section>
+    </div>
   </body>
 </html>
