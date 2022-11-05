@@ -45,5 +45,194 @@
         </button>
       </div>
     </header>
+    <div class="overflow-x-auto animate__animated animate__zoomIn">
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-12 mx-auto">
+          <div
+            class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto text-center"
+          >
+            <h1
+              class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
+            >
+              Course Code
+            </h1>
+            <h1
+              class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
+            >
+              Course Name
+            </h1>
+          </div>
+        </div>
+        <div class="container px-1 mt-1 mr-4">
+          <div
+            class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-40"
+          >
+            <button
+              class="flex-shrink-0 text-white bg-green-500 border-0 py-0 px-2 focus:outline-none hover:bg-green-600 rounded text-lg mt-10 sm:mt-0"
+            >
+              <a href=""> Add CO </a>
+            </button>
+          </div>
+        </div>
+      </section>
+      <div
+        class="min-w-screen min-h-0 flex items-center justify-center font-sans overflow-hidden"
+      >
+        <div class="w-full lg:w-5/6">
+          <div class="bg-white shadow-md rounded my-6">
+            <table class="min-w-max w-full table-auto">
+              <thead>
+                <tr
+                  class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
+                >
+                  <th class="py-3 px-6 text-left">CO</th>
+                  <th class="py-3 px-6 text-left">Course Outcome</th>
+                  <th class="py-3 px-6 text-left">CO Marks</th>
+                  <th class="py-3 px-6 text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-600 text-sm font-light">
+                {% for course in courses %}
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                  <td class="py-3 px-6 text-left whitespace-nowrap">
+                    <div class="flex items-center">
+                      <span class="font-medium">{{course.course.c_code}}</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-6 text-left">
+                    <span>{{course.course.c_name}}</span>
+                  </td>
+                  <td class="py-3 px-6 text-left">
+                    <span>{{course.course.total_credit}}</span>
+                  </td>
+                  <td class="py-3 px-6 text-center">
+                    <div class="flex item-center justify-center">
+                      <div
+                        class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
+                      >
+                        <a href="{% url 'assignCoordinator' cor.id %}">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+
+                      <div
+                        class="w-4 mr-2 transform text-red-700 hover:text-red-900 hover:scale-110"
+                      >
+                        <a>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div
+        class="min-w-screen min-h-0 flex items-center justify-center font-sans overflow-hidden"
+      >
+        <div class="w-full lg:w-5/6">
+          <div class="bg-white shadow-md rounded my-6">
+            <div
+              class="flex-grow sm:pr-10 text-2xl font-small title-font text-gray-900"
+            >
+              CO Threshold
+            </div>
+            <table class="min-w-max w-full table-auto">
+              <thead>
+                <tr
+                  class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
+                >
+                  <th class="py-3 px-6 text-left">Given Threshold</th>
+                  <th class="py-3 px-0 text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-600 text-sm font-light">
+                {% for course in courses %}
+                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                  <td class="py-3 px-6 text-left whitespace-nowrap">
+                    <div class="flex items-center">
+                      <span class="font-medium">{{course.course.c_code}}</span>
+                    </div>
+                  </td>
+
+                  <td class="py-3 px-6 text-center">
+                    <div class="flex item-center justify-center">
+                      <div
+                        class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
+                      >
+                        <a href="{% url 'assignCoordinator' cor.id %}">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+
+                      <div
+                        class="w-4 mr-2 transform text-red-700 hover:text-red-900 hover:scale-110"
+                      >
+                        <a>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
