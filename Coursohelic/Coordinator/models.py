@@ -1,5 +1,6 @@
 from django.db import models
 from Authentication.models import User
+from InstitutionAdmin.models import Program
 from distutils.command.upload import upload
  
 # Create your models here.
@@ -13,8 +14,12 @@ class Course(models.Model):
    is_assigned = models.BooleanField(default = False)
   
  
+class Program_Outcome(models.Model):
+   c_code = models.CharField(max_length = 200, default=None)
+   description = models.TextField(max_length = 300, default=None)
+   program = models.ForeignKey(Program, on_delete=models.CASCADE)
 
-   
+
 class AssignedCourses(models.Model):
       course = models.ForeignKey(Course, on_delete=models.CASCADE)
       instructor = models.ForeignKey(User, on_delete=models.CASCADE)
