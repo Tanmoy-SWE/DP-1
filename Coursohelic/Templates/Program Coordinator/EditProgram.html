@@ -54,12 +54,12 @@
             <h1
               class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
             >
-              Program Name
+              {{user.first_name}}
             </h1>
             <h1
               class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
             >
-              University Name
+              {{program.p_name}}
             </h1>
           </div>
         </div>
@@ -90,22 +90,22 @@
                 <tr
                   class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
                 >
-                  <th class="py-3 px-6 text-left">PO</th>
+                  {% comment %} <th class="py-3 px-6 text-left">PO</th> {% endcomment %}
                   <th class="py-3 px-6 text-left">Program Outcome</th>
                   <!-- <th class="py-3 px-6 text-left">Marks</th> -->
                   <th class="py-3 px-6 text-center">Actions</th>
                 </tr>
               </thead>
               <tbody class="text-gray-600 text-sm font-light">
-                {% for course in courses %}
+                {% for programs in ExistingProgram %}
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
-                  <td class="py-3 px-6 text-left whitespace-nowrap">
+                  {% comment %} <td class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
-                      <span class="font-medium">{{course.course.c_code}}</span>
+                      <span class="font-medium"></span>
                     </div>
-                  </td>
+                  </td> {% endcomment %}
                   <td class="py-3 px-6 text-left">
-                    <span>{{course.course.c_name}}</span>
+                    <span>{{programs.description}}</span>
                   </td>
                   <!-- <td class="py-3 px-6 text-left">
                     <span>{{course.course.total_credit}}</span>
@@ -115,7 +115,7 @@
                       <div
                         class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
                       >
-                        <a href="{% url 'assignCoordinator' cor.id %}">
+                        <a href="">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -182,15 +182,15 @@
                 </tr>
               </thead>
               <tbody class="text-gray-600 text-sm font-light">
-                {% for course in courses %}
+                {% for programs in CurrentProgram %}
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                   <td class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
-                      <span class="font-medium">{{course.course.c_code}}</span>
+                      <span class="font-medium">{{programs.c_code}}</span>
                     </div>
                   </td>
                   <td class="py-3 px-6 text-left">
-                    <span>{{course.course.c_name}}</span>
+                    <span>{{programs.description}}</span>
                   </td>
                   <!-- <td class="py-3 px-6 text-left">
                     <span>{{course.course.total_credit}}</span>
@@ -200,7 +200,7 @@
                       <!-- <div
                         class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
                       >
-                        <a href="{% url 'assignCoordinator' cor.id %}">
+                        <a href="">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -350,33 +350,6 @@
                   />
                 </div>
               </div>
-
-              <!-- <div class="p-2 w-full">
-                <div class="relative">
-                  <label for="message" class="leading-7 text-sm text-gray-600"
-                    >Course Outcome</label
-                  >
-                  <textarea
-                    id="message"
-                    name="message"
-                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                  ></textarea>
-                </div>
-              </div> -->
-              <!-- <div class="p-2 w-1/2">
-                <div class="relative">
-                  <label for="email" class="leading-7 text-sm text-gray-600"
-                    >Marks</label
-                  >
-
-                  <input
-                    type="number"
-                    id="total_credit"
-                    name="total_credit"
-                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                  />
-                </div>
-              </div> -->
 
               <div class="p-2 w-full">
                 <button

@@ -3,9 +3,9 @@
 from site import USER_SITE
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .models import AssignedCourses, Course
+from .models import AssignedCourses, Course, Program_Outcome
 from Authentication.models import User
-from InstitutionAdmin.models import All_Coordinators
+from InstitutionAdmin.models import All_Coordinators, Assign_Program, Program
 # Create your views here.
  
 def login(request):
@@ -88,3 +88,31 @@ def confirm_course(request, pk):
 
 def go_back_course(request):
    return redirect("/coordinator/courseList/")
+
+def setPO(request):
+      program_assigned = Assign_Program.objects.get(coordinator = request.user)
+      print(program_assigned.program)
+      p_name = Program_Outcome.objects.filter(program = program_assigned.program)
+      
+      
+      program_assigned2 = Program.objects.filter(p_name = program_assigned.program.p_name).exclude(p_id = program_assigned.program.p_id)
+      p_name2 = []
+      for i in range(0, len(program_assigned2)):
+             temp1 = Program_Outcome.objects.filter(program = program_assigned2[i])
+             for j in range(len(temp1)):
+                    p_name2.append(temp1[j])
+         
+      if request.method == "POST":
+            p_outcome = request.POST['program']
+            
+            length = len(p_name) + 1
+            
+            p_number = "PO" + str(length)   
+         
+            assign = Program_Outcome(c_code = p_number, description = p_outcome, program = program_assigned.program)
+            assign.save()
+            return redirect("/coordinator/setPO")
+   
+      return render(request, 'Program Coordinator/EditProgram.html', {"CurrentProgram": p_name, "ExistingProgram": p_name2, "program" : program_assigned.program})
+
+
