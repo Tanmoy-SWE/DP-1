@@ -54,12 +54,12 @@
             <h1
               class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
             >
-              Course Code
+              Program Name
             </h1>
             <h1
               class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
             >
-              Course Name
+              University Name
             </h1>
           </div>
         </div>
@@ -83,33 +83,33 @@
             <div
               class="flex-grow sm:pr-10 text-2xl font-small title-font text-gray-900"
             >
-              Existing Course Outcomes
+              Existing Program Outcomes
             </div>
             <table class="min-w-max w-full table-auto">
               <thead>
                 <tr
                   class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
                 >
-                  <!-- <th class="py-3 px-6 text-left">CO</th> -->
-                  <th class="py-3 px-6 text-left">Course Outcome</th>
-                  <th class="py-3 px-6 text-left">Marks</th>
+                  <th class="py-3 px-6 text-left">PO</th>
+                  <th class="py-3 px-6 text-left">Program Outcome</th>
+                  <!-- <th class="py-3 px-6 text-left">Marks</th> -->
                   <th class="py-3 px-6 text-center">Actions</th>
                 </tr>
               </thead>
               <tbody class="text-gray-600 text-sm font-light">
                 {% for course in courses %}
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
-                  <!-- <td class="py-3 px-6 text-left whitespace-nowrap">
+                  <td class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
                       <span class="font-medium">{{course.course.c_code}}</span>
                     </div>
-                  </td> -->
+                  </td>
                   <td class="py-3 px-6 text-left">
                     <span>{{course.course.c_name}}</span>
                   </td>
-                  <td class="py-3 px-6 text-left">
+                  <!-- <td class="py-3 px-6 text-left">
                     <span>{{course.course.total_credit}}</span>
-                  </td>
+                  </td> -->
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <div
@@ -168,7 +168,7 @@
             <div
               class="flex-grow sm:pr-10 text-2xl font-small title-font text-gray-900"
             >
-              Current Course Outcomes
+              Current Program Outcomes
             </div>
             <table class="min-w-max w-full table-auto">
               <thead>
@@ -176,8 +176,8 @@
                   class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
                 >
                   <th class="py-3 px-6 text-left">CO</th>
-                  <th class="py-3 px-6 text-left">Course Outcome</th>
-                  <th class="py-3 px-6 text-left">Marks</th>
+                  <th class="py-3 px-6 text-left">Program Outcome</th>
+                  <!-- <th class="py-3 px-6 text-left">Marks</th> -->
                   <th class="py-3 px-6 text-center">Actions</th>
                 </tr>
               </thead>
@@ -192,9 +192,9 @@
                   <td class="py-3 px-6 text-left">
                     <span>{{course.course.c_name}}</span>
                   </td>
-                  <td class="py-3 px-6 text-left">
+                  <!-- <td class="py-3 px-6 text-left">
                     <span>{{course.course.total_credit}}</span>
-                  </td>
+                  </td> -->
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <!-- <div
@@ -340,7 +340,7 @@
               <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="name" class="leading-7 text-sm text-gray-600"
-                    >Course Outcome</label
+                    >Program Outcome</label
                   >
                   <input
                     type="text"
@@ -363,7 +363,7 @@
                   ></textarea>
                 </div>
               </div> -->
-              <div class="p-2 w-1/2">
+              <!-- <div class="p-2 w-1/2">
                 <div class="relative">
                   <label for="email" class="leading-7 text-sm text-gray-600"
                     >Marks</label
@@ -376,7 +376,7 @@
                     class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
-              </div>
+              </div> -->
 
               <div class="p-2 w-full">
                 <button
