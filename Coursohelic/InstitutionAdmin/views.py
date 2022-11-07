@@ -105,7 +105,7 @@ def assignCoordinator(request, pk):
     coordinator = User.objects.get(id = pk)
     if request.method == "POST":
         pro_name = request.POST['choice']
-        program = Program.objects.get(p_name = pro_name)
+        program = Program.objects.get(p_name = pro_name, created_by = request.user)
         coord = Assign_Program(coordinator = coordinator, program = program)
         coord.save()
 
