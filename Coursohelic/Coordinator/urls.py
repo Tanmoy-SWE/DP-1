@@ -13,5 +13,7 @@ urlpatterns = [
      path('assignedCourses/', views.assign_instructor, name='assignedCourses'),
      path('courseConfirmation/<pk>', views.confirm_course, name="confirm_course"),
      path('goBackCourse', views.go_back_course,name="go_back_course"),
-     path('setPO/', views.setPO, name='setPO')
+     path('setPO/', views.setPO, name='setPO'),
+     path('addPO/<pk>/', views.addPO, name='addPO'),
+     path('deletePO/<pk>/', views.deletePO, name='deletePO'),
 ]

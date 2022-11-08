@@ -115,7 +115,7 @@
                       <div
                         class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
                       >
-                        <a href="">
+                        <a href="{% url 'addPO' programs.id %}">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -220,7 +220,7 @@
                       <div
                         class="w-4 mr-2 transform text-red-700 hover:text-red-900 hover:scale-110"
                       >
-                        <a>
+                        <a href="{% url 'deletePO' programs.id %}">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"

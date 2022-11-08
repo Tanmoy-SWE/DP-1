@@ -108,7 +108,7 @@ def setPO(request):
             length = len(p_name) + 1
             
             p_number = "PO" + str(length)   
-         
+      
             assign = Program_Outcome(c_code = p_number, description = p_outcome, program = program_assigned.program)
             assign.save()
             return redirect("/coordinator/setPO")
@@ -116,3 +116,29 @@ def setPO(request):
       return render(request, 'Program Coordinator/EditProgram.html', {"CurrentProgram": p_name, "ExistingProgram": p_name2, "program" : program_assigned.program})
 
 
+def addPO(request, pk):
+   po = Program_Outcome.objects.get(id = pk)
+   program_assigned = Assign_Program.objects.get(coordinator = request.user)
+   p_name = Program_Outcome.objects.filter(program = program_assigned.program)   
+
+   length = len(p_name) + 1
+   p_number = "PO" + str(length)
+   assign = Program_Outcome(c_code = p_number, description = po.description, program = program_assigned.program)
+   assign.save()
+   return redirect("/coordinator/setPO")
+
+
+def deletePO(request, pk):
+   po = Program_Outcome.objects.get(id = pk)
+   po.delete()
+   program_assigned = Assign_Program.objects.get(coordinator = request.user)
+   p_name = Program_Outcome.objects.filter(program = program_assigned.program)   
+
+   for i in range(0, len(p_name)):
+      length = i + 1
+      p_number = "PO" + str(length)
+      p_name[i].c_code = p_number
+      p_name[i].save()
+
+   return redirect("/coordinator/setPO")
+   
