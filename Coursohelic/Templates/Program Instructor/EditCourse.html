@@ -54,12 +54,12 @@
             <h1
               class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
             >
-              Course Code
+              {{course.course.c_code}}
             </h1>
             <h1
               class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
             >
-              Course Name
+            {{course.course.c_name}}
             </h1>
           </div>
         </div>
@@ -97,7 +97,7 @@
                 </tr>
               </thead>
               <tbody class="text-gray-600 text-sm font-light">
-                {% for course in courses %}
+                {% for exist in exists %}
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                   <!-- <td class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
@@ -105,17 +105,17 @@
                     </div>
                   </td> -->
                   <td class="py-3 px-6 text-left">
-                    <span>{{course.course.c_name}}</span>
+                    <span>{{exist.description}}</span>
                   </td>
                   <td class="py-3 px-6 text-left">
-                    <span>{{course.course.total_credit}}</span>
+                    <span>{{exist.total_marks}}</span>
                   </td>
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <div
                         class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
                       >
-                        <a href="{% url 'assignCoordinator' cor.id %}">
+                        <a href="{% url "addCO" pk exist.id %}">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -182,25 +182,25 @@
                 </tr>
               </thead>
               <tbody class="text-gray-600 text-sm font-light">
-                {% for course in courses %}
+                {% for assign in assigned %}
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                   <td class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
-                      <span class="font-medium">{{course.course.c_code}}</span>
+                      <span class="font-medium">{{assign.c_code}}</span>
                     </div>
                   </td>
                   <td class="py-3 px-6 text-left">
-                    <span>{{course.course.c_name}}</span>
+                    <span>{{assign.description}}</span>
                   </td>
                   <td class="py-3 px-6 text-left">
-                    <span>{{course.course.total_credit}}</span>
+                    <span>{{assign.total_marks}}</span>
                   </td>
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <!-- <div
                         class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
                       >
-                        <a href="{% url 'assignCoordinator' cor.id %}">
+                        <a href="">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -220,7 +220,7 @@
                       <div
                         class="w-4 mr-2 transform text-red-700 hover:text-red-900 hover:scale-110"
                       >
-                        <a>
+                        <a href="{% url "deleteCO" pk assign.id %}">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -345,7 +345,7 @@
                   <input
                     type="text"
                     id="program"
-                    name="program"
+                    name="course"
                     class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
@@ -372,7 +372,7 @@
                   <input
                     type="number"
                     id="total_credit"
-                    name="total_credit"
+                    name="marks"
                     class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>

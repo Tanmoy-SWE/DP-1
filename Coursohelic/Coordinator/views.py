@@ -69,7 +69,7 @@ def assign_instructor(request):
          if request.method == "POST":
             course = request.POST['choice']
             instr = request.POST['choice2']
-            c1 = Course.objects.get(c_name = course)
+            c1 = Course.objects.get(c_name = course, created_by = request.user)
             c2 = User.objects.get(id = instr)
             
             

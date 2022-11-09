@@ -7,5 +7,9 @@ urlpatterns = [
     path('', views.instructorHome, name='ProgramInstructorHome'),
     path('logout/', views.logout_user, name='logout'),
     path('courseList/', views.course_list, name="course_list"),
+    path('setCO/<pk>/', views.setCO, name = "setCO"),
+    path('addCO/<pk>/<pk2>/', views.addCO, name="addCO"),
+    path('deleteCO/<pk>/<pk2>/', views.deleteCO, name="deleteCO")
+
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]
