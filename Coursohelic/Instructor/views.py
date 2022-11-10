@@ -3,8 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from Coordinator.models import AssignedCourses, Program_Outcome, Course
 from .models import Course_Outcome, Mapping
 from InstitutionAdmin.models import Assign_Program
-from PyPDF2 import PdfFileMerger
-
+from PyPDF4 import PdfFileMerger
 
 
 # Create your views here.
