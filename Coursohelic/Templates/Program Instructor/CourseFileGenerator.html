@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Edit Course</title>
+  </head>
+  <body>
+    <header class="text-gray-600 body-font">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <span class="ml-3 text-xl">Coursohelic</span>
+        </a>
+        <nav
+          class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a href="/instructor/" class="mr-5 hover:text-gray-900">Home</a>
+          <a class="mr-5 hover:text-gray-900">{{user.first_name}}</a>
+        </nav>
+        <button
+          class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+        >
+          <a href="/institutionAdmin/logout/"> Logout </a>
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-4 h-4 ml-1"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <!-- component -->
+    <div class="sm:px-6 w-full">
+      <div class="px-4 md:px-10 py-4 md:py-7">
+        <div class="flex items-center justify-between">
+          <p
+            tabindex="0"
+            class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800"
+          >
+            Files
+          </p>
+        </div>
+      </div>
+      <div class="bg-white py-2 md:py-4 px-4 md:px-8 xl:px-10">
+        <div class="mt-7 overflow-x-auto">
+          <table class="w-full whitespace-nowrap">
+            <tbody class="place-content-center">
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Course Outline
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Lecture Material
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Best Student Work (Quiz 1)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Average Student Work (Quiz 1)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Worst Student Work (Quiz 1)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Best Student Work (Quiz 2)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Average Student Work (Quiz 2)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Worst Student Work (Quiz 2)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Best Student Work (Quiz 3)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Average Student Work (Quiz 3)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Worst Student Work (Quiz 3)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Best Student Work (Mid Term)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Average Student Work (Mid Term)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Worst Student Work (Mid Term)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Best Student Work (Term Final)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Average Student Work (Term Final)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Worst Student Work (Term Final)
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Attendance Record
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Quiz-1 Question
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Quiz-2 Question
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Quiz-3 Question
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Mid Term Question
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Term Final Question
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Grade Sheet
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+              <tr
+                tabindex="0"
+                class="focus:outline-none h-16 border border-gray-100 rounded"
+              >
+                <td class="">
+                  <div class="flex items-center pl-5">
+                    <p
+                      class="text-base font-medium leading-none text-gray-700 mr-2"
+                    >
+                      Student Feedback
+                    </p>
+                  </div>
+                </td>
+                <td class="pl-4">
+                  <button
+                    class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none"
+                  >
+                    Upload
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+    <style>
+      .checkbox:checked + .check-icon {
+        display: flex;
+      }
+    </style>
+    <script>
+      function dropdownFunction(element) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        let list =
+          element.parentElement.parentElement.getElementsByClassName(
+            "dropdown-content"
+          )[0];
+        list.classList.add("target");
+        for (i = 0; i < dropdowns.length; i++) {
+          if (!dropdowns[i].classList.contains("target")) {
+            dropdowns[i].classList.add("hidden");
+          }
+        }
+        list.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>
