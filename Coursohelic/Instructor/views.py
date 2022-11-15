@@ -104,9 +104,6 @@ def generateCourseFile(request):
         merger = PdfFileMerger()
         for q in list_of_questions:
                 request_file = request.FILES[q]
-                fs = FileSystemStorage()
-                file_list.append(str(request_file))
-                fs.save(request_file.name, request_file)
                 merger.append(request_file)
         merger.write("static/PDFs/merged_PDFS.pdf")
         merger.close()
