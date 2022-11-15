@@ -1,5 +1,5 @@
 from django.db import models
-from Coordinator.models import AssignedCourses, Program_Outcome, Course
+from Coordinator.models import AssignedCourses, Program_Outcome
 
 # Create your models here.
 class Course_Outcome(models.Model):
@@ -20,6 +20,4 @@ class Mapping(models.Model):
     
 class PdfFiles(models.Model):
     name = models.CharField(max_length=500, default=None)
-    filepath= models.FileField(upload_to='images/', null=True, verbose_name="")
-    #co_id = models.ForeignKey(Course, on_delete=models.CASCADE)
-    
+    filepath= models.FileField(upload_to='files/', null=True, verbose_name="")
