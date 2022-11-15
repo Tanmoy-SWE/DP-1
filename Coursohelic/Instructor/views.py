@@ -40,16 +40,6 @@ def setCO(request, pk):
     context = {'assigned': assigned_co}
     return render(request, "Program Instructor/EditCourse.html", context)
 
-# def instructorList(request):
-#    instructors = instructor.objects.all()
-#    instrList = []
-#    for i in range(0,len(instructors)):
-#        if (instructors[i].created_by == request.user):
-#                instrList.append(instructors[i])
- 
-#    print(instrList)
-#    context = {'instructors': instrList}
-#    return render(request, 'Program Coordinator/InstructorList.html', context)
 
 def addCO(request, pk, pk2):
     co = Course_Outcome.objects.get(id = pk2)
@@ -99,7 +89,6 @@ def generateCourseFile(request):
         # "Attendance": "",
         # 'Final' : ""
     }
-    file_list = []
     if request.method == 'POST':
         merger = PdfFileMerger()
         for q in list_of_questions:
