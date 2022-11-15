@@ -5,6 +5,7 @@ from .models import Course_Outcome, Mapping, Assigned_CO
 from InstitutionAdmin.models import Assign_Program
 from PyPDF4 import PdfFileMerger
 from django.core.files.storage import FileSystemStorage
+from django.conf import settings
 
 
 # Create your views here.
@@ -88,14 +89,14 @@ def deleteCO(request, pk, pk2):
    return redirect('/instructor/setCO/' + str(pk) + '/')
 
 
-def Merge_pdf():
+def Merge_pdf(f):
     #Create and instance of PdfFileMerger() class
     merger = PdfFileMerger()
     #Create a list with file names
-    files = ['file1.pdf','file2.pdf','pdf3.pdf']
+    #files = ['file1.pdf','file2.pdf','pdf3.pdf']
     pdf_files = []
-    for i in range(0, len(files)):
-        pdf_files.append('pdf_files/'+files[i])
+    for i in range(0, len(f)):
+        pdf_files.append(settings.MEDIA_ROOT+'/'+f[i])
     #Iterate over the list of file names
     for pdf_file in pdf_files:
         #Append PDF files
@@ -115,11 +116,14 @@ def generateCourseFile(request):
         # "Attendance": "",
         # 'Final' : ""
     }
+    file_list = []
     if request.method == 'POST':
         for q in list_of_questions:
                 request_file = request.FILES[q]
                 fs = FileSystemStorage()
+                file_list.append(str(request_file))
                 fs.save(request_file.name, request_file)
+    Merge_pdf(file_list)
     context = {
         'list_of_questions' : list_of_questions,
     }
