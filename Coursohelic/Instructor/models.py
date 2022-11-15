@@ -27,8 +27,13 @@ class Questions(models.Model):
     exam_type = models.CharField(max_length=100, default=None)
 
 class Students(models.Model):
-    c_code = models.ForeignKey(Course, on_delete= models.CASCADE)
+    student_id = models.CharField(max_length=20, default=None, primary_key = True)
+    c_code = models.ForeignKey(AssignedCourses, on_delete= models.CASCADE)
     name = models.CharField(max_length=300, default=None)
-    student_id = models.CharField(max_length=20, default=None)
-    program = models.CharField(max_length=100, default=None)
-    semester = models.IntegerField(default=0)
+
+class Marking(models.Model):
+    student = models.ForeignKey(Students, on_delete = models.CASCADE)
+    question = models.ForeignKey(Questions, on_delete = models.CASCADE)
+    marks_obtained = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+
+
