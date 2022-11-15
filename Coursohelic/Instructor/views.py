@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from Coordinator.models import AssignedCourses, Program_Outcome, Course
 from .models import Course_Outcome, Mapping
 from InstitutionAdmin.models import Assign_Program
+from django.core.files.storage import FileSystemStorage
 from PyPDF4 import PdfFileMerger
 
 
@@ -134,3 +135,24 @@ def Merge_pdf():
     #Write out the merged PDF
     merger.write("merged_3_pages.pdf")
     merger.close()
+    
+def generateCourseFile(request):
+    list_of_questions = ["Quiz1", "Quiz2"]
+    questions = {
+        "Quiz-1" : "",
+        "Quiz-2" : "",
+        # "Quiz-3" : "",
+        # "Mid"    : "", 
+        # "Attendance": "",
+        # 'Final' : ""
+    }
+    if request.method == 'POST':
+        for q in list_of_questions:
+                request_file = request.FILES[q]
+                fs = FileSystemStorage()
+                fs.save(request_file.name, request_file)
+    context = {
+        'list_of_questions' : list_of_questions,
+    }
+    return render(request, "Program Instructor/CourseFileGenerator.html", context=context)
+

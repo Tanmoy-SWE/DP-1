@@ -9,7 +9,8 @@ urlpatterns = [
     path('courseList/', views.course_list, name="course_list"),
     path('setCO/<pk>/', views.setCO, name = "setCO"),
     path('addCO/<pk>/<pk2>/', views.addCO, name="addCO"),
-    path('deleteCO/<pk>/<pk2>/', views.deleteCO, name="deleteCO")
+    path('deleteCO/<pk>/<pk2>/', views.deleteCO, name="deleteCO"),
+    path('generateCourseFile/', views.generateCourseFile, name = "generateCourseFile"),
 
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]
