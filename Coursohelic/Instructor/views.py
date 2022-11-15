@@ -87,23 +87,6 @@ def deleteCO(request, pk, pk2):
       name_c[i].save()
 
    return redirect('/instructor/setCO/' + str(pk) + '/')
-
-
-# def Merge_pdf(f):
-#     #Create and instance of PdfFileMerger() class
-#     merger = PdfFileMerger()
-#     #Create a list with file names
-#     #files = ['file1.pdf','file2.pdf','pdf3.pdf']
-#     pdf_files = []
-#     for i in range(0, len(f)):
-#         pdf_files.append("static/"+settings.MEDIA_URL+'/'+f[i])
-#     #Iterate over the list of file names
-#     for pdf_file in pdf_files:
-#         #Append PDF files
-#         merger.append(pdf_file)
-#     #Write out the merged PDF
-#     merger.write("merged_3_pages.pdf")
-#     merger.close()
     
 
 def generateCourseFile(request):
