@@ -10,7 +10,8 @@ urlpatterns = [
     path('setCO/<pk>/', views.setCO, name = "setCO"),
     path('addCO/<pk>/<pk2>/', views.addCO, name="addCO"),
     path('deleteCO/<pk>/<pk2>/', views.deleteCO, name="deleteCO"),
-    path('generateCourseFile/', views.generateCourseFile, name="generateCourseFile")
+    path('generateCourseFile/', views.generateCourseFile, name="generateCourseFile"),
+    path('downloadCourseFile/', views.downloadCourseFile, name="downloadCourseFile"),
 
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]

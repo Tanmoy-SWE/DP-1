@@ -100,3 +100,6 @@ def generateCourseFile(request):
         'list_of_questions' : list_of_questions,
     }
     return render(request, "Program Instructor/CourseFileGenerator.html", context=context)
+
+def downloadCourseFile(request):
+    return render(request, "Program Instructor/downloadCourseFile.html")
