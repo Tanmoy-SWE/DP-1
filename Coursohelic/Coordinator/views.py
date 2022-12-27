@@ -115,6 +115,20 @@ def setPO(request):
    
       return render(request, 'Program Coordinator/EditProgram.html', {"CurrentProgram": p_name, "ExistingProgram": p_name2, "program" : program_assigned.program})
 
+def editPO(request, pk):
+       if request.method == "POST":
+             description = request.POST['program']
+             temp = Program_Outcome.objects.get(id = pk)
+             temp.description = description
+             temp.save()
+
+             return redirect("/coordinator/setPO")
+
+
+       new = Program_Outcome.objects.get(id = pk)
+       context = {"pk": new}
+       return render(request, "Program Coordinator/AddPO.html", context)
+
 
 def addPO(request, pk):
    po = Program_Outcome.objects.get(id = pk)

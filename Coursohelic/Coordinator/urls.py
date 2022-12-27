@@ -16,4 +16,5 @@ urlpatterns = [
      path('setPO/', views.setPO, name='setPO'),
      path('addPO/<pk>/', views.addPO, name='addPO'),
      path('deletePO/<pk>/', views.deletePO, name='deletePO'),
+     path('editPO/<pk>/', views.editPO , name="editPO")
 ]
