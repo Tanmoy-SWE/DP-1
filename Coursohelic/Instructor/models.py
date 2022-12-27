@@ -7,13 +7,13 @@ class Course_Outcome(models.Model):
     description = models.TextField(max_length = 300, default=None)
     total_marks = models.DecimalField(max_digits = 6, decimal_places = 2, default=0)
     course_assigned = models.ForeignKey(AssignedCourses, on_delete = models.CASCADE)
-    
+    is_active = models.BooleanField(default=False)
 
 
 
 class Mapping(models.Model):
      program_outcome = models.ForeignKey(Program_Outcome, on_delete = models.CASCADE)
-     weight = models.DecimalField(max_digits = 5, decimal_places = 2, default=0)
+     course_outcome = models.ForeignKey(Course_Outcome, on_delete=models.CASCADE)     
      course_assigned = models.ForeignKey(AssignedCourses, on_delete = models.CASCADE)
     
 class PdfFiles(models.Model):
