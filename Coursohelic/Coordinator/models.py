@@ -16,7 +16,7 @@ class Course(models.Model):
  
 class Program_Outcome(models.Model):
    c_code = models.CharField(max_length = 200, default=None)
-   description = models.TextField(max_length = 300, default=None)
+   description = models.TextField(max_length = 300, default=None, null=True)
    program = models.ForeignKey(Program, on_delete=models.CASCADE)
 
 

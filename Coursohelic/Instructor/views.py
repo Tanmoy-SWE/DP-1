@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from Coordinator.models import AssignedCourses, Program_Outcome, Course
-from .models import Course_Outcome, Mapping, Assigned_CO
+from .models import Course_Outcome, Mapping
 from InstitutionAdmin.models import Assign_Program
 from PyPDF4 import PdfFileMerger
 from django.core.files.storage import FileSystemStorage
@@ -28,17 +28,7 @@ def course_list(request):
     return render(request, 'Program Instructor/AssignedCourse.html', context)
 
 def setCO(request, pk):
-    course_assigned = AssignedCourses.objects.get(id = pk)
-    co = Course_Outcome.objects.filter(course_assigned = course_assigned)
-    assigned_co = []
-    for i in range(0, len(co)):
-        a = Assigned_CO.objects.filter(co = co[i])
-        for i in range(0, len(a)):
-            assigned_co.append(a[i])
-
-    print(type(assigned_co[i]))
-    context = {'assigned': assigned_co}
-    return render(request, "Program Instructor/EditCourse.html", context)
+    pass
 
 
 def addCO(request, pk, pk2):

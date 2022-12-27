@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import ProgramForm
 from .models import All_Coordinators, Assign_Program, Program
+from Coordinator.models import Program_Outcome
 from Authentication.models import User
 
 
@@ -52,6 +53,12 @@ def add_program(request):
 
         new_program = Program(p_name = name, department = department, description = description, total_credit = total_credit, created_by = user)
         new_program.save()
+
+        for i in range(0,12):
+            po_number = "PO" + str(i+1)
+            new_po = Program_Outcome(c_code = po_number, program = new_program)
+            new_po.save()
+            
         return redirect('/institutionAdmin/ProgramList/')
 
     return render(request, 'AddProgram.html')
