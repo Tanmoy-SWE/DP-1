@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Edit Course</title>
+  </head>
+  <body>
+    <header class="text-gray-600 body-font">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <span class="ml-3 text-xl">Coursohelic</span>
+        </a>
+        <nav
+          class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a href="/instructor/" class="mr-5 hover:text-gray-900">Home</a>
+          <a class="mr-5 hover:text-gray-900">{{user.first_name}}</a>
+        </nav>
+        <button
+          class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+        >
+          <a href="/institutionAdmin/logout/"> Logout </a>
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-4 h-4 ml-1"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <div class="flex flex-col justify-center items-center mt-8">
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-12 mx-auto">
+          <div
+            class="flex flex-col sm:flex-row sm:items-center items-start mx-auto text-center"
+          >
+            <h1
+              class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
+            >
+              Add Student
+            </h1>
+          </div>
+        </div>
+      </section>
+      <form class="w-full max-w-lg">
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-1/2 px-3">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-last-name"
+            >
+              Student Name
+            </label>
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-last-name"
+              type="text"
+              placeholder=""
+            />
+          </div>
+          <div class="w-full md:w-1/2 px-3">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-last-name"
+            >
+              Student ID
+            </label>
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-last-name"
+              type="text"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <!-- <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-password"
+            >
+              Password
+            </label>
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-password"
+              type="password"
+              placeholder="******************"
+            />
+          </div>
+        </div> -->
+        <div class="flex flex-wrap -mx-3 mb-2">
+          <!-- <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-city"
+            >
+              City
+            </label>
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-city"
+              type="text"
+              placeholder="Albuquerque"
+            />
+          </div> -->
+          <div class="w-full md:w-1/2 px-3">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-state"
+            >
+              Course
+            </label>
+            <div class="relative">
+              <select
+                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-state"
+              >
+                <option>Assigned Course 1</option>
+                <option>Assigned Course 2</option>
+                <option>Assigned Course 3</option>
+              </select>
+              <div
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+              >
+                <svg
+                  class="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 px-3">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-zip"
+            >
+              Academic Year
+            </label>
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-zip"
+              type="text"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="md:flex md:items-center mt-6">
+          <div class="md:w-1/2"></div>
+          <div class="md:w-2/3">
+            <button
+              class="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+              type="submit"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
