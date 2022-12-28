@@ -6,7 +6,7 @@ from InstitutionAdmin.models import Assign_Program
 #from PyPDF4 import PdfFileMerger
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
-
+import json
 
 # Create your views here.
 def login(request):
@@ -37,6 +37,33 @@ def setCO(request, pk):
     
 
     course_outcomes = Course_Outcome.objects.filter(course_assigned = a_course)
+    # ismapped = [[False] * len(program_outcomes) for i in range(len(course_outcomes))]
+    ismapped = {}
+    for i in range(0, len(course_outcomes)):
+        newmap = {}
+        for j in range(0, len(program_outcomes)):
+            temp = Mapping.objects.filter(course_outcome = course_outcomes[i], program_outcome = program_outcomes[j])
+            if (len(temp) > 0):
+                newmap[program_outcomes[j].id] = True
+            else:
+                newmap[program_outcomes[j].id] = False 
+        ismapped[course_outcomes[i].id] = newmap
+
+    print(ismapped)
+    # for i in range(0, len(course_outcomes)):
+    #     for j in range(0, len(program_outcomes)):
+    #         temp = Mapping.objects.filter(course_outcome = course_outcomes[i], program_outcome = program_outcomes[j])
+            
+    #         if (len(temp)> 0):
+                
+    #             #ismapped.append(True)
+    #             ismapped[i][j] = True
+
+
+
+    
+
+    
     
     #if (a_course.is_mapped == True):
 
@@ -44,7 +71,7 @@ def setCO(request, pk):
 
 
 
-    context = {"course" : a_course, "poutcomes": program_outcomes, "coutcomes" : course_outcomes, "pk": pk}
+    context = {"course" : a_course, "poutcomes": program_outcomes, "coutcomes" : course_outcomes, "pk": pk, "ismapped": ismapped}
     return render(request, "Program Instructor/EditCourse.html", context)
 
 
@@ -99,7 +126,7 @@ def submitmap(request, pk):
     print(mapper)
     for i in range(0, len(mapper)):
         mapper[i] = mapper[i].split("s")
-    
+    print(mapper)
     c_assigned = AssignedCourses.objects.get(id = pk)
     for j in range(0, len(mapper)):
         co = Course_Outcome.objects.get(id = int(mapper[j][0]))
@@ -109,6 +136,9 @@ def submitmap(request, pk):
 
     print(mapper)    
 
+    
+
+    
     return redirect('/instructor/setCO/' + str(pk) + '/')
 
 def generateCourseFile(request):
