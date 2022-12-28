@@ -23,5 +23,6 @@ class Program_Outcome(models.Model):
 class AssignedCourses(models.Model):
       course = models.ForeignKey(Course, on_delete=models.CASCADE)
       instructor = models.ForeignKey(User, on_delete=models.CASCADE)
+      is_mapped = models.BooleanField(default=False)
       
 
