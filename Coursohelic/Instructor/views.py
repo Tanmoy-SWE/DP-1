@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from Coordinator.models import AssignedCourses, Program_Outcome, Course
 from .models import Course_Outcome, Mapping
 from InstitutionAdmin.models import Assign_Program
-from PyPDF4 import PdfFileMerger
+#from PyPDF4 import PdfFileMerger
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
@@ -34,7 +34,7 @@ def setCO(request, pk):
     creator = course.created_by
     program = Assign_Program.objects.get(coordinator = creator)
     program_outcomes = Program_Outcome.objects.filter(program = program.program)
-    print(program_outcomes)
+    
 
     course_outcomes = Course_Outcome.objects.filter(course_assigned = a_course)
     
@@ -73,6 +73,36 @@ def deleteCO(request, pk, pk2):
 
    return redirect('/instructor/setCO/' + str(pk) + '/')
     
+def non_activate_course(pk):
+    assigned_course = AssignedCourses.objects.get(id = pk)
+    courses = Course_Outcome.objects.filter(course_assigned = assigned_course)
+    for i in range(0, len(courses)):
+        courses[i].is_active = False
+        courses[i].save()
+
+def submitmap(request, pk):
+    
+    non_activate_course(pk)
+
+    checkactive = request.POST.getlist('checkactive')
+    
+
+    
+    for i in range(0, len(checkactive)):
+        num = int(checkactive[i])
+        print(num)
+        temp = Course_Outcome.objects.get(id = num)
+        temp.is_active = True
+        temp.save()
+    
+    mapper = request.POST.getlist('mapper')
+    print(mapper)
+    for i in range(0, len(mapper)):
+        mapper[i] = mapper[i].split("s")
+
+    print(mapper)    
+
+    return redirect('/instructor/setCO/' + str(pk) + '/')
 
 def generateCourseFile(request):
     list_of_questions = ["Quiz1", "Quiz2"]

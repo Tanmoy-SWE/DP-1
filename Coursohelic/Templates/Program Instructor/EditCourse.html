@@ -45,6 +45,8 @@
         </button>
       </div>
     </header>
+  <form action="{% url 'submitmap' pk %}" method="POST">
+      {% csrf_token%}
     <div class="overflow-x-auto animate__animated animate__zoomIn">
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-12 mx-auto">
@@ -91,6 +93,7 @@
                 </tr>
               </thead>
               
+                
                 <tbody class="text-gray-600 text-sm font-light">
                   {% for co in coutcomes %}
                   <tr class="border-b border-gray-200 hover:bg-gray-100">
@@ -99,23 +102,29 @@
                         <div
                           class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
                         >
-                          <form method = "" action="google.com">
-                            {% csrf_token %} 
-                           {% if co.is_active %} 
+                          
+                          
+                          {% if co.is_active%}
                           <input
                             placeholder = "checkbox"
                             type="checkbox"
+                            name = "checkactive"
+                            value={{co.id}}                      
                             checked = "checked"
-                            {% comment %} class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"  {% endcomment %}
                           />
+
                           {% else %}
                           <input
-                            placeholder = "checkbox"
-                            type="checkbox"
+                          placeholder = "checkbox"
+                          type="checkbox"
+                          name = "checkactive"
+                          value={{co.id}}                      
                           
-                            {% comment %} class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"  {% endcomment %}
-                          />
-                          {% endif %}
+                        />
+                        {% endif %}
+                          
+                          
+                          
 
                           </form>
                           <div
@@ -153,7 +162,9 @@
                           <input
                             placeholder="checkbox"
                             type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                            value={{co.id}}s{{po.id}}
+                            name="mapper"
+                            {% comment %} class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full" {% endcomment %}
                           />
                           <div
                             class="check-icon hidden bg-indigo-700 text-white rounded-sm"
@@ -181,7 +192,7 @@
                   </tr>
                   {% endfor %}
                 </tbody>
-              </form>
+              
             </table>
           </div>
         </div>
@@ -199,10 +210,12 @@
             type="submit"
             class="flex-shrink-0 text-white bg-blue-500 border-0 py-0 px-2 focus:outline-none hover:bg-blue-600 rounded text-lg mt-10 sm:mt-0"
           >
-            <a> Submit </a>
+            submit
           </button>
         </div>
-      </div>
+     </div>
+    </div>
+  </form>
       <form method="POST" action="{% url 'addCO' pk %}">
         {% csrf_token %}
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
