@@ -158,11 +158,13 @@
                       <div class="ml-5">
                         <div
                           class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                        {% with row=co.id %}
-                        {% with col=po.id %}
-                        {% if ismapped.row.col %}
-                          {{mapped.row.col}}
+                        >   
+                        {% for ti in ticked %}
+                        
+                        {% if ti.0 == co.id %}
+                        {% if ti.1 == po.id %}
+                          
+                          
                           <input
                             placeholder="checkbox"
                             id = "map"
@@ -172,7 +174,10 @@
                             checked = "checked"
                             {% comment %} class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full" {% endcomment %}
                           />
-                          {% else %}
+                          {% endif %}
+                          {% endif %}
+                          {% endfor %}
+                          
                           <input
                             placeholder="checkbox"
                             id = "map"
@@ -182,10 +187,6 @@
                             
                             {% comment %} class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full" {% endcomment %}
                           />
-
-                        {% endif %}  
-                        {% endwith %}
-                        {% endwith %}
                           <div
                             class="check-icon hidden bg-indigo-700 text-white rounded-sm"
                           >

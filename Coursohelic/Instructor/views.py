@@ -58,6 +58,18 @@ def setCO(request, pk):
                 
     #             #ismapped.append(True)
     #             ismapped[i][j] = True
+    
+    ticked = []
+    r = 0
+    c = 0
+    for x in ismapped:
+        r = r + 1
+        for y in ismapped[x]:
+            c = c + 1
+            if ismapped[x][y] == True:
+                ticked.append([r,c])
+        c = 1
+    print(ticked)                
 
 
 
@@ -71,7 +83,7 @@ def setCO(request, pk):
 
 
 
-    context = {"course" : a_course, "poutcomes": program_outcomes, "coutcomes" : course_outcomes, "pk": pk, "ismapped": ismapped}
+    context = {"course" : a_course, "poutcomes": program_outcomes, "coutcomes" : course_outcomes, "pk": pk, "ismapped": ismapped, "ticked": ticked}
     return render(request, "Program Instructor/EditCourse.html", context)
 
 
