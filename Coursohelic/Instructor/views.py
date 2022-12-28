@@ -186,7 +186,6 @@ def generateCourseFile(request):
     print(request.POST)
     print(783273732887378)
     if request.method == 'POST':
-        print("FUCK YOU")
         merger = PdfFileMerger()
         print(783273732887378)
         for q in list_of_questions:
