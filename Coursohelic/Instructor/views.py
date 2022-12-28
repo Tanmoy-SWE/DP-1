@@ -49,27 +49,28 @@ def setCO(request, pk):
                 newmap[program_outcomes[j].id] = False 
         ismapped[course_outcomes[i].id] = newmap
 
-    print(ismapped)
-    # for i in range(0, len(course_outcomes)):
-    #     for j in range(0, len(program_outcomes)):
-    #         temp = Mapping.objects.filter(course_outcome = course_outcomes[i], program_outcome = program_outcomes[j])
-            
-    #         if (len(temp)> 0):
-                
-    #             #ismapped.append(True)
-    #             ismapped[i][j] = True
-    
     ticked = []
-    r = 0
-    c = 0
-    for x in ismapped:
-        r = r + 1
-        for y in ismapped[x]:
-            c = c + 1
-            if ismapped[x][y] == True:
-                ticked.append([r,c])
-        c = 1
-    print(ticked)                
+    print(ismapped)
+    for i in range(0, len(course_outcomes)):
+           for j in range(0, len(program_outcomes)):
+             temp = Mapping.objects.filter(course_outcome = course_outcomes[i], program_outcome = program_outcomes[j])
+            
+             if (len(temp)> 0):
+                
+                 #ismapped.append(True)
+                 ticked.append([course_outcomes[i].id, program_outcomes[j].id])
+    
+    # ticked = []
+    # r = 0
+    # c = 0
+    # for x in ismapped:
+    #     r = r + 1
+    #     for y in ismapped[x]:
+    #         c = c + 1
+    #         if ismapped[x][y] == True:
+    #             ticked.append([r,c])
+    #     c = 1
+    # print(ticked)                
 
 
 
