@@ -99,6 +99,13 @@ def submitmap(request, pk):
     print(mapper)
     for i in range(0, len(mapper)):
         mapper[i] = mapper[i].split("s")
+    
+    c_assigned = AssignedCourses.objects.get(id = pk)
+    for j in range(0, len(mapper)):
+        co = Course_Outcome.objects.get(id = int(mapper[j][0]))
+        po = Program_Outcome.objects.get(id = int(mapper[j][1]))
+        map = Mapping(program_outcome = po, course_outcome = co, course_assigned = c_assigned)
+        map.save()
 
     print(mapper)    
 
