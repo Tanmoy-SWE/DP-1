@@ -159,7 +159,10 @@
                         <div
                           class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
                         >
-                        {% if ismapped.1.3 %}
+                        {% with row=co.id %}
+                        {% with col=po.id %}
+                        {% if ismapped.row.col %}
+                          {{mapped.row.col}}
                           <input
                             placeholder="checkbox"
                             id = "map"
@@ -181,6 +184,8 @@
                           />
 
                         {% endif %}  
+                        {% endwith %}
+                        {% endwith %}
                           <div
                             class="check-icon hidden bg-indigo-700 text-white rounded-sm"
                           >
