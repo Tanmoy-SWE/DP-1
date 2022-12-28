@@ -101,12 +101,22 @@
                         >
                           <form method = "" action="google.com">
                             {% csrf_token %} 
+                           {% if co.is_active %} 
                           <input
                             placeholder = "checkbox"
                             type="checkbox"
                             checked = "checked"
                             {% comment %} class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"  {% endcomment %}
                           />
+                          {% else %}
+                          <input
+                            placeholder = "checkbox"
+                            type="checkbox"
+                          
+                            {% comment %} class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"  {% endcomment %}
+                          />
+                          {% endif %}
+
                           </form>
                           <div
                             class="check-icon hidden bg-indigo-700 text-white rounded-sm"
