@@ -235,9 +235,20 @@
           >
             Save
           </button>
+          
         </div>
      </div>
     </div>
+  </form>
+  <form action = "{% url "confirmmap" pk %}" method = "POST">
+    {% csrf_token %}
+    <button
+            type="submit"
+            name="sendNewSms"
+            class="flex-shrink-0 text-white bg-blue-500 border-0 py-0 px-2 focus:outline-none hover:bg-blue-600 rounded text-lg mt-10 sm:mt-0"
+          >
+            Submit
+          </button>
   </form>
       <form method="POST" action="{% url 'addCO' pk %}">
         {% csrf_token %}

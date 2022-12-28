@@ -12,7 +12,9 @@ urlpatterns = [
     path('deleteCO/<pk>/<pk2>/', views.deleteCO, name="deleteCO"),
     path('generateCourseFile/', views.generateCourseFile, name="generateCourseFile"),
     path('downloadCourseFile/', views.downloadCourseFile, name="downloadCourseFile"),
-    path('submitmap/<pk>/', views.submitmap, name="submitmap")
+    path('submitmap/<pk>/', views.submitmap, name="submitmap"),
+    path('confirmmap/<pk>/', views.confirmmap, name="confirmmap"),
+    path('lockmapping/<pk>/', views.lockmapping, name="lockmapping")
     
 
   #  path('courseList/', views.instructorList, name='instructorList'),

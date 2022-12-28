@@ -7,6 +7,7 @@ from InstitutionAdmin.models import Assign_Program
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 import json
+from django.http import HttpResponse
 
 # Create your views here.
 def login(request):
@@ -78,8 +79,8 @@ def setCO(request, pk):
 
     
     
-    #if (a_course.is_mapped == True):
-
+    if (a_course.is_mapped == True):
+        return HttpResponse("Hi")
 
 
 
@@ -159,6 +160,17 @@ def submitmap(request, pk):
 
     
     return redirect('/instructor/setCO/' + str(pk) + '/')
+
+def confirmmap(request, pk):
+    context = {"pk" : pk}
+    return render(request, "Program Instructor/MapConfirmation.html", context)    
+
+def lockmapping(request, pk):
+    c = AssignedCourses.objects.get(id = pk)
+    c.is_mapped = True
+    c.save()
+
+    return redirect("/instructor/courseList/")
 
 def generateCourseFile(request):
     list_of_questions = ["Quiz1", "Quiz2"]

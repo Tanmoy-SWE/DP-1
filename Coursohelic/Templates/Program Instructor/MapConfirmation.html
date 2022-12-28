@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Delete Confirmation Page</title>
+  </head>
+  <body>
+    <header class="text-gray-600 body-font">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <span class="ml-3 text-xl">Coursohelic</span>
+        </a>
+        <nav
+          class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a href="AdminHome.html" class="mr-5 hover:text-gray-900">Home</a>
+          <a class="mr-5 hover:text-gray-900">Admin Profile</a>
+        </nav>
+        <button
+          class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+        >
+          Logout
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-4 h-4 ml-1"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <div class="w-full md:w-1/3 mx-auto mt-40">
+      <div class="flex flex-col p-5 rounded-lg shadow bg-white">
+        <div class="flex">
+          <div>
+            <svg
+              class="w-6 h-6 fill-current text-red-500"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
+              />
+            </svg>
+          </div>
+
+          <div class="ml-3">
+            <h2 class="font-semibold text-gray-800">Delete This Section</h2>
+            <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+              Are you sure you want to Confirm Your Mapping? Once you accept you cannot go back.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center mt-3">
+          <form method="POST" action="{% url 'lockmapping' pk %}">
+            {% csrf_token %}
+          <button
+            class="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
+          >
+            Confirm
+          </button>
+        </form>
+          <form method="POST" action="{% url "setCO" pk %}">
+            {% csrf_token %}
+          <button
+            type="submit"
+            class="flex-1 px-4 py-2 ml-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
