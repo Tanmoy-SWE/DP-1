@@ -57,7 +57,7 @@
           </p>
         </div>
       </div>
-      <form method="POST" action="/instructor/downloadCourseFile/" enctype="multipart/form-data">
+      <form class="form" method="POST" action="/instructor/generateCourseFile/" enctype="multipart/form-data">
         {% for q in list_of_questions %}
       <div class="bg-white py-2 md:py-4 px-4 md:px-8 xl:px-10">
         <div class="mt-7 overflow-x-auto">
@@ -66,35 +66,13 @@
                
                 {% csrf_token %}
                 <input type="file" name={{ q }}>
+                HIIIIII
               <br></p>
         </div>
       </div>
-      {% endfor %}
+        {% endfor %}
       <button type="submit">Upload</button>
     </form>
     </div>
-    <script src="./index.js"></script>
-    <style>
-      .checkbox:checked + .check-icon {
-        display: flex;
-      }
-    </style>
-    <script>
-      function dropdownFunction(element) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        let list =
-          element.parentElement.parentElement.getElementsByClassName(
-            "dropdown-content"
-          )[0];
-        list.classList.add("target");
-        for (i = 0; i < dropdowns.length; i++) {
-          if (!dropdowns[i].classList.contains("target")) {
-            dropdowns[i].classList.add("hidden");
-          }
-        }
-        list.classList.toggle("hidden");
-      }
-    </script>
   </body>
 </html>

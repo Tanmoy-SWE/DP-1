@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from Coordinator.models import AssignedCourses, Program_Outcome, Course
 from .models import Course_Outcome, Mapping
 from InstitutionAdmin.models import Assign_Program
-#from PyPDF4 import PdfFileMerger
+from PyPDF2 import PdfFileMerger
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 import json
@@ -182,17 +182,25 @@ def generateCourseFile(request):
         # "Attendance": "",
         # 'Final' : ""
     }
+    
+    print(request.POST)
+    print(783273732887378)
     if request.method == 'POST':
+        print("FUCK YOU")
         merger = PdfFileMerger()
+        print(783273732887378)
         for q in list_of_questions:
                 request_file = request.FILES[q]
+                
                 merger.append(request_file)
         merger.write("static/PDFs/merged_PDFS.pdf")
         merger.close()
+        return redirect("downloadCourseFile")
     context = {
         'list_of_questions' : list_of_questions,
     }
     return render(request, "Program Instructor/CourseFileGenerator.html", context=context)
 
 def downloadCourseFile(request):
+    
     return render(request, "Program Instructor/downloadCourseFile.html")
