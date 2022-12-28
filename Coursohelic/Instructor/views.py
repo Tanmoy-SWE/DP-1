@@ -28,29 +28,34 @@ def course_list(request):
     return render(request, 'Program Instructor/AssignedCourse.html', context)
 
 def setCO(request, pk):
-    pass
+    
+    a_course = AssignedCourses.objects.get(id = pk)
+    course = Course.objects.get(c_id = a_course.course.c_id)
+    creator = course.created_by
+    program = Assign_Program.objects.get(coordinator = creator)
+    program_outcomes = Program_Outcome.objects.filter(program = program.program)
+    print(program_outcomes)
+
+    course_outcomes = Course_Outcome.objects.filter(course_assigned = a_course)
+    
+    #if (a_course.is_mapped == True):
 
 
-def addCO(request, pk, pk2):
-    co = Course_Outcome.objects.get(id = pk2)
-    course_assigned = AssignedCourses.objects.get(id = pk)
-    name_c = Course_Outcome.objects.filter(course_assigned = course_assigned)
 
-    length = len(name_c) + 1
-    p_number = "CO" + str(length)   
-    assign = Course_Outcome(c_code = p_number, description = co.description, total_marks = co.total_marks, course_assigned = course_assigned)
-    assign.save()
 
-    course_info = course_assigned.course
-    coordinator_info = course_info.created_by
-    program_assigned = Assign_Program.objects.filter(coordinator = coordinator_info)
-    program = program_assigned[0].program
 
-    p_outcome = Program_Outcome.objects.filter(program = program)
-    print(p_outcome)
-    for i in range(0, len(p_outcome)):
-        assign2 = Mapping(program_outcome = p_outcome[i], course_outcome = assign, weight = 0, course_assigned= course_assigned)
-        assign2.save()
+    context = {"course" : a_course, "poutcomes": program_outcomes, "coutcomes" : course_outcomes, "pk": pk}
+    return render(request, "Program Instructor/EditCourse.html", context)
+
+
+def addCO(request, pk):
+    if request.method == 'POST':
+        description = request.POST['course']
+        course = AssignedCourses.objects.get(id = pk)
+        course_outcomes = Course_Outcome.objects.filter(course_assigned = course)
+        text = "CO" + str(len(course_outcomes) + 1)
+        temp = Course_Outcome(c_code = text, description = description, course_assigned = course)
+        temp.save()
     
     return redirect('/instructor/setCO/' + str(pk) + '/')
 

@@ -90,20 +90,23 @@
                   <th class="py-3 px-6 text-left">PO12</th>
                 </tr>
               </thead>
-              <form action="" method="POST">
+              
                 <tbody class="text-gray-600 text-sm font-light">
-                  {% for assign in assigned %}
+                  {% for co in coutcomes %}
                   <tr class="border-b border-gray-200 hover:bg-gray-100">
                     <td>
                       <div class="ml-5">
                         <div
                           class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
                         >
+                          <form method = "" action="google.com">
+                            {% csrf_token %} 
                           <input
-                            placeholder="checkbox"
+                            placeholder = "checkbox"
                             type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full" 
                           />
+                          </form>
                           <div
                             class="check-icon hidden bg-indigo-700 text-white rounded-sm"
                           >
@@ -128,9 +131,9 @@
                     </td>
 
                     <td class="py-3 px-6 text-left">
-                      <span>{{assign.co.description}}</span>
+                      <span>{{co.description}}</span>
                     </td>
-
+                    {% for po in poutcomes %}
                     <td>
                       <div class="ml-5">
                         <div
@@ -163,358 +166,7 @@
                         </div>
                       </div>
                     </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="ml-5">
-                        <div
-                          class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative"
-                        >
-                          <input
-                            placeholder="checkbox"
-                            type="checkbox"
-                            class="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
-                          />
-                          <div
-                            class="check-icon hidden bg-indigo-700 text-white rounded-sm"
-                          >
-                            <svg
-                              class="icon icon-tabler icon-tabler-check"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <path d="M5 12l5 5l10 -10"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
+                    {%endfor%}
                   </tr>
                   {% endfor %}
                 </tbody>
@@ -540,7 +192,7 @@
           </button>
         </div>
       </div>
-      <form method="POST" action="">
+      <form method="POST" action="{% url 'addCO' pk %}">
         {% csrf_token %}
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
           <div class="flex flex-wrap -m-2">
@@ -552,7 +204,7 @@
                 <input
                   type="text"
                   id="program"
-                  name="program"
+                  name="course"
                   class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
@@ -567,7 +219,6 @@
             </div>
           </div>
         </div>
-      </form>
     </div>
   </body>
 </html>
