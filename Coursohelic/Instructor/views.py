@@ -120,8 +120,14 @@ def non_activate_course(pk):
         courses[i].is_active = False
         courses[i].save()
 
+def delete_mapping(pk):
+    assigned_course = AssignedCourses.objects.get(id = pk)
+    temp = Mapping.objects.filter(course_assigned = assigned_course)
+    for i in range(0, len(temp)):
+        temp[i].delete()
+
 def submitmap(request, pk):
-    
+    delete_mapping(pk)
     non_activate_course(pk)
 
     checkactive = request.POST.getlist('checkactive')
