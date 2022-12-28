@@ -51,7 +51,7 @@ def setCO(request, pk):
         ismapped[course_outcomes[i].id] = newmap
 
     ticked = []
-    print(ismapped)
+    
     for i in range(0, len(course_outcomes)):
            for j in range(0, len(program_outcomes)):
              temp = Mapping.objects.filter(course_outcome = course_outcomes[i], program_outcome = program_outcomes[j])
@@ -142,6 +142,18 @@ def submitmap(request, pk):
         temp.is_active = True
         temp.save()
     
+    c_assigned = AssignedCourses.objects.get(id = pk)
+    temp = Course_Outcome.objects.filter(course_assigned = c_assigned).exclude(is_active = True)
+    for i in range(0, len(temp)):
+        temp[i].delete()
+    
+    temp = Course_Outcome.objects.filter(course_assigned = c_assigned)
+    for i in range(len(temp)):
+        coid = "CO" + str(i + 1)
+        temp[i].c_code = coid
+        temp[i].save()
+        #print(temp[i].c_code)
+
     mapper = request.POST.getlist('mapper')
     print(mapper)
     for i in range(0, len(mapper)):
@@ -153,6 +165,8 @@ def submitmap(request, pk):
         po = Program_Outcome.objects.get(id = int(mapper[j][1]))
         map = Mapping(program_outcome = po, course_outcome = co, course_assigned = c_assigned)
         map.save()
+
+
 
     print(mapper)    
 
