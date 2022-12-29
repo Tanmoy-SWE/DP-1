@@ -471,22 +471,35 @@ def assignpothreshold(request, pk):
     context = {"pk": pk}
     return render(request, "Program Instructor/CO templates/AddThresholdPO.html", context)
 
+def generate_program_outcomes(pk):
+    courses_a = AssignedCourses.objects.get(id = pk)
+    course = courses_a.course
+    created_by = course.created_by
+    program = Assign_Program.objects.get(coordinator = created_by)
+    program = program.program
+    program_outcomes = Program_Outcome.objects.filter(program = program)
+    return program_outcomes
+
 def generatetable(request, pk):
     courses_a = AssignedCourses.objects.get(id = pk)
+    program_outcomes = generate_program_outcomes(pk)
+    print(program_outcomes)
+
+
     threshold = Threshold.objects.get(course_assigned = courses_a)
     cos = Course_Outcome.objects.filter(course_assigned = courses_a)
     total_achieved = {}
     for i in range(0, len(cos)):
         temp = cos[i].id
         total_achieved[temp] = 0
-    print(cos)
+    
     students = Student.objects.filter(course_assigned = courses_a)
     list_students = []
     for i in range(len(students)):
         temp = []
         for j in range(len(cos)):
             
-            print(cos[j])
+            
             result = Result.objects.filter(course_assigned = courses_a, course_outcome = cos[j], student = students[i])
             total = 0
             individual = 0
@@ -503,11 +516,10 @@ def generatetable(request, pk):
             else:
                 attained = "N"
             temp.append(attained)
-            print(temp)
+            
            
         list_students.append({"students": students[i], "maps": temp})
-        print(list_students) 
-        print(total_achieved)
+        
 
     percents = []
     overallatt = []
