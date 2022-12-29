@@ -277,6 +277,7 @@ def questionlist(request, pk, pk2):
     print(pk2)
     c_assigned = AssignedCourses.objects.get(id = pk)
     questions = Questions.objects.filter(course_assigned = c_assigned, type=pk2)
+
     context={"pk": pk, "pk2": pk2, "course": c_assigned, "questions": questions}
     return render(request, "Program Instructor/QuestionList.html", context)
 
@@ -300,7 +301,9 @@ def addquestion(request, pk, pk2):
         co_val = Course_Outcome.objects.get(id = co_out)
         temp = Questions(number = q_number, totalmarks = name, description = description, type=pk2, course_outcome = co_val, course_assigned = c_assigned)
         temp.save()
-
+        for i in range(0, len(students)):
+            result = Result(totalmarks = temp.totalmarks, marks_obtained = 0, student = students[i], question = temp, course_assigned = c_assigned, course_outcome = co_val)
+            result.save()
 
         return redirect("/instructor/questionlist/"+ str(pk) + "/" + str(pk2) + "/")
     
@@ -350,11 +353,47 @@ def studentlistmarks(request, pk, pk2):
     c_assigned = AssignedCourses.objects.get(id = pk)
     students = Student.objects.filter(course_assigned = c_assigned)
     question = Questions.objects.filter(course_assigned = c_assigned, type = pk2)
+    everything = []
+    for i in range(len(students)):
+        total_marks = 0
+        for j in range(len(question)):
+            result = Result.objects.filter(student = students[i], question=question[j])
+            total_marks += result[0].marks_obtained
+        everything.append({"student": students[i], "total_marks": total_marks, "identity": students[i].id})
+
     
 
-    context = {"pk": pk, "pk2": pk2, "students": students}
+    context = {"pk": pk, "pk2": pk2, "everything": everything}
     return render(request, "Program Instructor/StudentListForMarks.html",context)
 
 def assignmarks(request, pk, pk2, pk3):
-    context = {"pk": pk, "pk2": pk2, "pk3":pk3}
+    c_assigned = AssignedCourses.objects.get(id = pk)
+    questions = Questions.objects.filter(course_assigned = c_assigned, type= pk2)
+    student = Student.objects.get(id = pk3)
+    print(questions)
+    if request.method == "POST":
+        for i in range(len(questions)):
+            
+            code = str(questions[i].number)
+            
+            item = request.POST[code]
+            
+            result = Result.objects.get(course_assigned = c_assigned, question = questions[i], student = student)
+            
+            item = int(item)
+            if (item > result.totalmarks):
+                result.marks_obtained = result.totalmarks
+            elif(item < 0):
+               result.marks_obtained = 0
+            else:
+                result.marks_obtained = item 
+            
+            
+            result.save()
+            
+            
+        return redirect("/instructor/studentlistmarks/" + str(pk) + "/" + str(pk2) +"/")    
+
+
+    context = {"pk": pk, "pk2": pk2, "pk3": pk3, "questions": questions}
     return render(request, "Program Instructor/AssignMarks.html", context)

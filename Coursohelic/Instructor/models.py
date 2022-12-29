@@ -37,7 +37,7 @@ class Questions(models.Model):
 class Result(models.Model):
     totalmarks = models.DecimalField(max_digits = 6, decimal_places = 2, default=0)
     marks_obtained = models.DecimalField(max_digits = 6, decimal_places = 2, default=0)
-    question = models.OneToOneField(Questions, on_delete=models.CASCADE, default=None)
+    question = models.ForeignKey(Questions, on_delete=models.CASCADE, default=None)
     course_assigned = models.ForeignKey(AssignedCourses, on_delete=models.CASCADE, default=None)
     course_outcome = models.ForeignKey(Course_Outcome, on_delete=models.CASCADE, default=None)
     student = models.ForeignKey(Student, on_delete=models.CASCADE, default=None)
