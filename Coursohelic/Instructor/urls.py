@@ -35,5 +35,8 @@ urlpatterns = [
     path('assignmarks/<pk>/<str:pk2>/<pk3>/', views.assignmarks, name="assignmarks"),
     path("/cocourselist/", views.cocourselist, name="cocourselist"),
     path('threshold/<pk>/', views.threshold, name="threshold"),
+    path('assignindividualthreshold/<pk>/', views.assignindividualthreshold, name="assignindividualthreshold"),
+    path('assignoverallthreshold/<pk>/', views.assignoverallthreshold, name="assignoverallthreshold"),
+    path('assignpothreshold/<pk>/', views.assignpothreshold, name="assignpothreshold"),
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]

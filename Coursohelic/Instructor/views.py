@@ -419,3 +419,54 @@ def threshold(request, pk):
 
     context = {"pk": pk, "threshold": threshold}
     return render(request, "Program Instructor/CO templates/Threshold.html", context)
+
+def assignindividualthreshold(request, pk):
+    courses_a = AssignedCourses.objects.get(id = pk)
+    t_hold = Threshold.objects.get(course_assigned = courses_a)
+    if request.method == "POST":
+        item = request.POST['name']
+        item = float(item)
+        if (item > 100):
+            item = 100
+        elif (item < 0):
+            item = 0
+        
+        t_hold.individual = item
+        t_hold.save()
+        return redirect("/instructor/threshold/" + str(pk) + "/")
+
+    context = {"pk": pk}
+    return render(request, "Program Instructor/CO templates/AddThresholdIndividual.html", context)
+
+def assignoverallthreshold(request, pk):
+    courses_a = AssignedCourses.objects.get(id = pk)
+    t_hold = Threshold.objects.get(course_assigned = courses_a)
+    if request.method == "POST":
+        item = request.POST['name']
+        item = float(item)
+        if (item > 100):
+            item = 100
+        elif (item < 0):
+            item = 0
+        t_hold.overall = item
+        t_hold.save()
+        return redirect("/instructor/threshold/" + str(pk) + "/")
+
+    context = {"pk": pk}
+    return render(request, "Program Instructor/CO templates/AddThresholdOverall.html", context)
+
+def assignpothreshold(request, pk):
+    courses_a = AssignedCourses.objects.get(id = pk)
+    t_hold = Threshold.objects.get(course_assigned = courses_a)
+    if request.method == "POST":
+        item = request.POST['name']
+        item = float(item)
+        if (item > 100):
+            item = 100
+        elif (item < 0):
+            item = 0
+        t_hold.program = item
+        t_hold.save()
+        return redirect("/instructor/threshold/" + str(pk) + "/")
+    context = {"pk": pk}
+    return render(request, "Program Instructor/CO templates/AddThresholdPO.html", context)

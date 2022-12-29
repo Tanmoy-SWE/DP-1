@@ -72,10 +72,10 @@
                 >
                   Course Outcome Percentage for Individual Student
                 </h1>
-                <p class="leading-relaxed mb-3">50%</p>
+                <p class="leading-relaxed mb-3">{{threshold.individual}}%</p>
                 <a
                   class="text-indigo-500 inline-flex items-center"
-                  href="AddThreshold.html"
+                  href="{% url 'assignindividualthreshold' pk %}"
                   >Change
                   <svg
                     class="w-4 h-4 ml-2"
@@ -104,10 +104,10 @@
                 >
                   Percentage of Students Achieving Course Outcome
                 </h1>
-                <p class="leading-relaxed mb-3">50%</p>
+                <p class="leading-relaxed mb-3">{{threshold.overall}}%</p>
                 <a
                   class="text-indigo-500 inline-flex items-center"
-                  href="AddThresholdforCO.html"
+                  href="{% url 'assignoverallthreshold' pk %}"
                   >Change
                   <svg
                     class="w-4 h-4 ml-2"
@@ -137,10 +137,10 @@
                   Percentage of Course Outcome Required to Achieve Program
                   Outcome
                 </h1>
-                <p class="leading-relaxed mb-3">50%</p>
+                <p class="leading-relaxed mb-3">{{threshold.program}}%</p>
                 <a
                   class="text-indigo-500 inline-flex items-center"
-                  href="../PO templates/AddThreshold.html"
+                  href="{% url 'assignpothreshold' pk %}"
                   >Change
                   <svg
                     class="w-4 h-4 ml-2"
