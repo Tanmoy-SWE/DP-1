@@ -24,3 +24,11 @@ class Student(models.Model):
     student_name = models.CharField(max_length = 100, default=None)
     a_year = models.CharField(max_length=20, default = None)
     course_assigned = models.ForeignKey(AssignedCourses, on_delete=models.CASCADE)
+
+class Questions(models.Model):
+
+    number = models.IntegerField()
+    totalmarks = models.DecimalField(max_digits = 6, decimal_places = 2, default=0)
+    description = models.TextField(max_length = 3000, default=None)
+    type = models.CharField(max_length = 20, default=None)
+    course_outcome = models.ForeignKey(Course_Outcome, on_delete=models.CASCADE)
