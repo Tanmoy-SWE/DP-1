@@ -33,3 +33,9 @@ class Questions(models.Model):
     type = models.CharField(max_length = 20, default=None)
     course_outcome = models.ForeignKey(Course_Outcome, on_delete=models.CASCADE)
     course_assigned = models.ForeignKey(AssignedCourses, on_delete=models.CASCADE, default=None)
+
+class Result(models.Model):
+    totalmarks = models.DecimalField(max_digits = 6, decimal_places = 2, default=0)
+    marks_obtained = models.DecimalField(max_digits = 6, decimal_places = 2, default=0)
+    question = models.ForeignKey(Questions, on_delete=models.CASCADE)
+    course_assigned = models.ForeignKey(AssignedCourses, on_delete=models.CASCADE, default=None)
