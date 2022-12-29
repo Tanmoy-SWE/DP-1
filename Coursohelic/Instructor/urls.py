@@ -26,5 +26,6 @@ urlpatterns = [
     path('questionlist/<pk>/<str:pk2>/', views.questionlist, name="questionlist"),
     path('addquestion/<pk>/<str:pk2>/', views.addquestion, name="addquestion"),
     path('instructorProfile', views.instructorProfile, name = "instructorProfile")
+    #path('deleteconfirmation/<pk>/<str:pk2>/pk3', views.deleteconfirmation, name="deleteconfirmation")
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]
