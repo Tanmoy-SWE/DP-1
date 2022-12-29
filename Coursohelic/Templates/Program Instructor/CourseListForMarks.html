@@ -93,21 +93,21 @@
                   <tr class="border-b border-gray-200 hover:bg-gray-100">
                     <td class="py-3 px-6 text-left">
                       <div class="flex items-center">
-                        <span class="font-medium">{{course.c_code}}</span>
+                        <span class="font-medium">{{course.course.c_code}}</span>
                       </div>
                     </td>
                     <!-- <td class="py-3 px-6 text-left">
                       <span>{{course.total_credit}}</span>
                     </td> -->
                     <td class="py-3 px-6 text-left">
-                      <span>{{course.c_name}}</span>
+                      <span>{{course.course.c_name}}</span>
                     </td>
                     <td class="py-3 px-6 text-center">
                       <div class="flex item-center justify-center">
                         <div
                           class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
                         >
-                        <a href="AllTermListForMarks.html">
+                        <a href="{% url 'markstermlist' course.id %}">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"

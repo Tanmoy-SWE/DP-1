@@ -331,3 +331,21 @@ def deletequestion(request, pk, pk2, pk3):
         questions[i].save()
     
     return redirect("/instructor/questionlist/"+ str(pk) + "/" + str(pk2) + "/")
+
+def markscourselist(request):
+
+    a_courses = AssignedCourses.objects.filter(instructor = request.user)
+
+    context = {"courses": a_courses}
+    return render(request, "Program Instructor/CourseListForMarks.html", context)
+
+def markstermlist(request, pk):
+    c_assigned = AssignedCourses.objects.get(id = pk)
+    context = {"pk": pk, "course": c_assigned}
+    return render(request, "Program Instructor/AllTermListForMarks.html", context)
+
+def studentlistmarks(request, pk, pk2):
+    c_assigned = AssignedCourses.objects.get(id = pk)
+    students = Student.objects.filter(course_assigned = c_assigned)
+    context = {"pk": pk, "pk2": pk2, "students": students}
+    return render(request, "Program Instructor/StudentListForMarks.html",context)
