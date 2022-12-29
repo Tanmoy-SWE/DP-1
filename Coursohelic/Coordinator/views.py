@@ -4,6 +4,7 @@ from site import USER_SITE
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import AssignedCourses, Course, Program_Outcome
+from Instructor.models import Course_Outcome
 from Authentication.models import User
 from InstitutionAdmin.models import All_Coordinators, Assign_Program, Program
 # Create your views here.
@@ -75,7 +76,9 @@ def assign_instructor(request):
             
             assign = AssignedCourses(course = c1, instructor = c2)
             assign.save()
-            return redirect("/coordinator/")
+
+
+            
       
       
       
