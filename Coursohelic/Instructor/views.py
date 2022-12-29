@@ -401,3 +401,8 @@ def assignmarks(request, pk, pk2, pk3):
 
     context = {"pk": pk, "pk2": pk2, "pk3": pk3, "questions": questions}
     return render(request, "Program Instructor/AssignMarks.html", context)
+
+def cocourselist(request):
+    courses_a = AssignedCourses.objects.filter(instructor = request.user)
+    context = {"courses": courses_a}
+    return render(request, "Program Instructor/CO templates/CourseList.html", context)
