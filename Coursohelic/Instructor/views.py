@@ -251,7 +251,7 @@ def addstudent(request, pk):
 
 def deletestudentconfirmation(request, pk, pk2):
 
-    return render(request, "Program Instructor/DeleteStudentConfirmation.html", {"pk": pk, "pk2": pk})
+    return render(request, "Program Instructor/DeleteStudentConfirmation.html", {"pk": pk, "pk2": pk2})
 
 def deletestudent(request, pk, pk2):
     student = Student.objects.get(id = pk2)
