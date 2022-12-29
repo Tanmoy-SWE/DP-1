@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from Coordinator.models import AssignedCourses, Program_Outcome, Course
-from .models import Course_Outcome, Mapping
+from .models import Course_Outcome, Mapping, Student
 from InstitutionAdmin.models import Assign_Program
 from PyPDF2 import PdfFileMerger
 from django.core.files.storage import FileSystemStorage
@@ -217,3 +217,48 @@ def generateCourseFile(request):
 def downloadCourseFile(request):
     
     return render(request, "Program Instructor/downloadCourseFile.html")
+
+def studentcourselist(request):
+    
+    courses_a = AssignedCourses.objects.filter(instructor = request.user)
+    context = {"courses": courses_a}
+    return render(request, "Program Instructor/CourseListForStudents.html", context)
+
+def viewstudentlist(request, pk):
+
+    getcourse = AssignedCourses.objects.get(id = pk)
+    students = Student.objects.filter(course_assigned = getcourse)
+    
+
+    context = {"pk": pk, "students": students}
+    return render(request, "Program Instructor/StudentList.html", context)
+
+def addstudent(request, pk):
+    getcourse = AssignedCourses.objects.get(id = pk)
+    if request.method == "POST":
+        name = request.POST['name']
+        id = request.POST['id']
+        year = request.POST['year']
+
+        new_entry = Student(student_id = id, student_name = name, a_year = year, course_assigned = getcourse)
+        new_entry.save()
+
+        return redirect("/instructor/viewstudentlist/" + str(pk) + "/")
+
+
+    context = {"pk": pk}
+    return render(request, "Program Instructor/AddStudent.html", context)
+
+def deletestudentconfirmation(request, pk, pk2):
+
+    return render(request, "Program Instructor/DeleteStudentConfirmation.html", {"pk": pk, "pk2": pk})
+
+def deletestudent(request, pk, pk2):
+    student = Student.objects.get(id = pk2)
+    student.delete()
+
+    return redirect("/instructor/viewstudentlist/" + str(pk) + "/")
+
+def gobackstudentlist(request, pk):
+    
+    return redirect("/instructor/viewstudentlist/" + str(pk) + "/")

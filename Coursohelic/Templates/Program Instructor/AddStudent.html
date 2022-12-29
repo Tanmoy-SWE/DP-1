@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <title>Edit Course</title>
+    <title>Add Student</title>
   </head>
   <body>
     <header class="text-gray-600 body-font">
@@ -59,7 +59,8 @@
           </div>
         </div>
       </section>
-      <form class="w-full max-w-lg">
+      <form action = "{% url 'addstudent' pk %}" method = "POST" class="w-full max-w-lg">
+        {% csrf_token %}
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full md:w-1/2 px-3">
             <label
@@ -73,6 +74,7 @@
               id="grid-last-name"
               type="text"
               placeholder=""
+              name="name"
             />
           </div>
           <div class="w-full md:w-1/2 px-3">
@@ -87,6 +89,7 @@
               id="grid-last-name"
               type="text"
               placeholder=""
+              name="id"
             />
           </div>
         </div>
@@ -164,6 +167,7 @@
               id="grid-zip"
               type="text"
               placeholder=""
+              name="year"
             />
           </div>
         </div>

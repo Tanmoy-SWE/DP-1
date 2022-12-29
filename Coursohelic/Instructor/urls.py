@@ -14,8 +14,13 @@ urlpatterns = [
     path('downloadCourseFile/', views.downloadCourseFile, name="downloadCourseFile"),
     path('submitmap/<pk>/', views.submitmap, name="submitmap"),
     path('confirmmap/<pk>/', views.confirmmap, name="confirmmap"),
-    path('lockmapping/<pk>/', views.lockmapping, name="lockmapping")
-    
+    path('lockmapping/<pk>/', views.lockmapping, name="lockmapping"),
+    path('studentcourselist/', views.studentcourselist, name="studentcourselist"),
+    path('viewstudentlist/<pk>/', views.viewstudentlist, name="viewstudentlist"),
+    path('addstudent/<pk>/', views.addstudent, name="addstudent"),
+    path('deletestudentconfirmation/<pk>/<pk2>', views.deletestudentconfirmation, name="deletestudentconfirmation"),
+    path('deletestudent/<pk>/<pk2>', views.deletestudent, name="deletestudent"),
+    path('gobackstudentlist/<pk>/', views.gobackstudentlist, name="gobackstudentlist")
 
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]

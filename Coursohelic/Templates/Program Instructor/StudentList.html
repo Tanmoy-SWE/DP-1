@@ -71,7 +71,7 @@
             <button
               class="flex-shrink-0 text-white bg-green-500 border-0 py-0 px-2 focus:outline-none hover:bg-green-600 rounded text-lg mt-10 sm:mt-0"
             >
-              <a href={% url '' %}> Add Student</a>
+              <a href="{% url 'addstudent' pk %}"> Add Student</a>
               
             </button>
           </div>
@@ -94,25 +94,25 @@
                 </tr>
               </thead>
               <tbody class="text-gray-600 text-sm font-light">
-                <!-- {% for program in programs %} -->
+                {% for student in students %} 
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                   <td class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
-                      <span class="font-medium">{{program.coordinator.first_name}}</span>
+                      <span class="font-medium">{{student.student_id}}</span>
                     </div>
                   </td>
                   <td class="py-3 px-6 text-left">
-                    <span>{{program.program.p_name}}</span>
+                    <span>{{student.student_name}}</span>
                   </td>
                   <td class="py-3 px-6 text-left">
-                    <span>{{program.program.department}}</span>
+                    <span>{{student.a_year}}</span>
                   </td>
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <div
                         class="w-4 mr-2 transform text-red-700 hover:text-red-900 hover:scale-110"
                       >
-                        <a href="{% url 'coordinator_confirmation' program.id %}">
+                        <a href="{% url "deletestudentconfirmation" pk=pk pk2=student.id %}">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
