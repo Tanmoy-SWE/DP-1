@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <title>Program Coordinator List</title>
+    <title>Student List</title>
   </head>
   <body>
     <header class="text-gray-600 body-font">
@@ -131,7 +131,9 @@
                       <div
                         class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
                       >
-                        <a href="{% url 'assignmarks' pk=pk pk2=pk2 pk3=a.identity%}">
+                        <a
+                          href="{% url 'assignmarks' pk=pk pk2=pk2 pk3=a.identity%}"
+                        >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -147,8 +149,6 @@
                           </svg>
                         </a>
                       </div>
-
-                      
                     </div>
                   </td>
                 </tr>

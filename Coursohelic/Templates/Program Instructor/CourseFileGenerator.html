@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <title>Edit Course</title>
+    <title>Course File Generator</title>
   </head>
   <body>
     <header class="text-gray-600 body-font">
@@ -57,21 +57,27 @@
           </p>
         </div>
       </div>
-      <form class="form" method="POST" action="/instructor/generateCourseFile/" enctype="multipart/form-data">
+      <form
+        class="form"
+        method="POST"
+        action="/instructor/generateCourseFile/"
+        enctype="multipart/form-data"
+      >
         {% for q in list_of_questions %}
-      <div class="bg-white py-2 md:py-4 px-4 md:px-8 xl:px-10">
-        <div class="mt-7 overflow-x-auto">
-          
-               <p>{{ q }}<br>          
-               
-                {% csrf_token %}
-                <input type="file" name={{ q }} required>
-              <br></p>
+        <div class="bg-white py-2 md:py-4 px-4 md:px-8 xl:px-10">
+          <div class="mt-7 overflow-x-auto">
+            <p>
+              {{ q }}<br />
+
+              {% csrf_token %}
+              <input type="file" name="{{" q }} required />
+              <br />
+            </p>
+          </div>
         </div>
-      </div>
         {% endfor %}
-      <button type="submit">Upload</button>
-    </form>
+        <button type="submit">Upload</button>
+      </form>
     </div>
   </body>
 </html>
