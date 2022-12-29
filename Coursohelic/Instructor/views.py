@@ -187,7 +187,7 @@ def lockmapping(request, pk):
     return redirect("/instructor/courseList/")
 
 def generateCourseFile(request):
-    list_of_questions = ["Quiz1", "Quiz2"]
+    list_of_questions = ["Course_Outline", "Quiz1", "Quiz2", "Quiz3", "Mid", "Final", "Attendance"]
     questions = {
         "Quiz-1" : "",
         "Quiz-2" : "",
