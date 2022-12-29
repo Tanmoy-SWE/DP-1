@@ -311,3 +311,23 @@ def instructorProfile(request):
                "role" : "Instructor"}
     print(request.user.institution)
     return render(request, "Program Instructor/InstructorProfile.html", context)
+
+def deleteconfirmation(request, pk, pk2, pk3):
+    context = {"pk": pk, "pk2": pk2, "pk3": pk3}
+    return render(request, "Program Instructor/DeleteQuestionConfirmation.html", context)
+
+def gobackquestionlist(request, pk, pk2):
+    context = {"pk": pk, "pk2": pk2}
+    return redirect("/instructor/questionlist/"+ str(pk) + "/" + str(pk2) + "/")
+
+def deletequestion(request, pk, pk2, pk3):
+    question = Questions.objects.get(id = pk3)
+    question.delete()
+
+    c_assigned = AssignedCourses.objects.get(id = pk)
+    questions = Questions.objects.filter(course_assigned = c_assigned, type = pk2)
+    for i in range(len(questions)):
+        questions[i].number = i + 1
+        questions[i].save()
+    
+    return redirect("/instructor/questionlist/"+ str(pk) + "/" + str(pk2) + "/")

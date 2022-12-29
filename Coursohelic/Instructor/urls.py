@@ -25,7 +25,9 @@ urlpatterns = [
     path('viewtermlist/<pk>/', views.viewtermlist, name="viewtermlist"), 
     path('questionlist/<pk>/<str:pk2>/', views.questionlist, name="questionlist"),
     path('addquestion/<pk>/<str:pk2>/', views.addquestion, name="addquestion"),
-    path('instructorProfile', views.instructorProfile, name = "instructorProfile")
-    #path('deleteconfirmation/<pk>/<str:pk2>/pk3', views.deleteconfirmation, name="deleteconfirmation")
+    path('instructorProfile', views.instructorProfile, name = "instructorProfile"),
+    path('deleteconfirmation/<pk>/<str:pk2>/<pk3>/', views.deleteconfirmation, name="deleteconfirmation"),
+    path('deletequestion/<pk>/<str:pk2>/<pk3>/', views.deletequestion, name="deletequestion"),
+    path('gobackquestionlist/<pk>/<str:pk2>/', views.gobackquestionlist, name="gobackquestionlist")
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]
