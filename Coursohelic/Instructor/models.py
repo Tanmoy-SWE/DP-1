@@ -40,3 +40,4 @@ class Result(models.Model):
     question = models.OneToOneField(Questions, on_delete=models.CASCADE, default=None)
     course_assigned = models.ForeignKey(AssignedCourses, on_delete=models.CASCADE, default=None)
     course_outcome = models.ForeignKey(Course_Outcome, on_delete=models.CASCADE, default=None)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, default=None)

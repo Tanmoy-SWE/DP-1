@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from Coordinator.models import AssignedCourses, Program_Outcome, Course
-from .models import Course_Outcome, Mapping, Student, Questions
+from .models import Course_Outcome, Mapping, Student, Questions, Result
 from InstitutionAdmin.models import Assign_Program
 from PyPDF2 import PdfFileMerger
 from django.core.files.storage import FileSystemStorage
@@ -286,6 +286,7 @@ def addquestion(request, pk, pk2):
     
     
     totalquestions = Questions.objects.filter(course_assigned = c_assigned, type=pk2)
+    students = Student.objects.filter(course_assigned = c_assigned)
     q_number = len(totalquestions) + 1
     if request.method == "POST":
         name = request.POST["Marks"]
@@ -299,6 +300,7 @@ def addquestion(request, pk, pk2):
         co_val = Course_Outcome.objects.get(id = co_out)
         temp = Questions(number = q_number, totalmarks = name, description = description, type=pk2, course_outcome = co_val, course_assigned = c_assigned)
         temp.save()
+
 
         return redirect("/instructor/questionlist/"+ str(pk) + "/" + str(pk2) + "/")
     
@@ -347,5 +349,12 @@ def markstermlist(request, pk):
 def studentlistmarks(request, pk, pk2):
     c_assigned = AssignedCourses.objects.get(id = pk)
     students = Student.objects.filter(course_assigned = c_assigned)
+    question = Questions.objects.filter(course_assigned = c_assigned, type = pk2)
+    
+
     context = {"pk": pk, "pk2": pk2, "students": students}
     return render(request, "Program Instructor/StudentListForMarks.html",context)
+
+def assignmarks(request, pk, pk2, pk3):
+    context = {"pk": pk, "pk2": pk2, "pk3":pk3}
+    return render(request, "Program Instructor/AssignMarks.html", context)
