@@ -304,3 +304,10 @@ def addquestion(request, pk, pk2):
     
     context = {"pk": pk, "pk2": pk2, "course_outcomes": co, "q_number": q_number}
     return render(request, "Program Instructor/AddQuestion.html", context)
+
+def instructorProfile(request):
+    context = {"name" : request.user, 
+               "ins": request.user.institution,
+               "role" : "Instructor"}
+    print(request.user.institution)
+    return render(request, "Program Instructor/InstructorProfile.html", context)

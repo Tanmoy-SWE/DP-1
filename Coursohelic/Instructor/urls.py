@@ -24,6 +24,7 @@ urlpatterns = [
     path('questioncourselist/', views.questioncourselist, name="questioncourselist"),
     path('viewtermlist/<pk>/', views.viewtermlist, name="viewtermlist"), 
     path('questionlist/<pk>/<str:pk2>/', views.questionlist, name="questionlist"),
-    path('addquestion/<pk>/<str:pk2>/', views.addquestion, name="addquestion")
+    path('addquestion/<pk>/<str:pk2>/', views.addquestion, name="addquestion"),
+    path('instructorProfile', views.instructorProfile, name = "instructorProfile")
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]
