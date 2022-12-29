@@ -33,6 +33,7 @@ urlpatterns = [
     path('markstermlist/<pk>/', views.markstermlist, name="markstermlist"),
     path('studentlistmarks/<pk>/<str:pk2>/', views.studentlistmarks, name="studentlistmarks"),
     path('assignmarks/<pk>/<str:pk2>/<pk3>/', views.assignmarks, name="assignmarks"),
-    path("/cocourselist", views.cocourselist, name="cocourselist")
+    path("/cocourselist/", views.cocourselist, name="cocourselist"),
+    path('threshold/<pk>/', views.threshold, name="threshold"),
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]

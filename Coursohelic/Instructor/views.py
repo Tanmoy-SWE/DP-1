@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from Coordinator.models import AssignedCourses, Program_Outcome, Course
-from .models import Course_Outcome, Mapping, Student, Questions, Result
+from .models import Course_Outcome, Mapping, Student, Questions, Result, Threshold
 from InstitutionAdmin.models import Assign_Program
 from PyPDF2 import PdfFileMerger
 from django.core.files.storage import FileSystemStorage
@@ -406,3 +406,16 @@ def cocourselist(request):
     courses_a = AssignedCourses.objects.filter(instructor = request.user)
     context = {"courses": courses_a}
     return render(request, "Program Instructor/CO templates/CourseList.html", context)
+
+def threshold(request, pk):
+    courses_a = AssignedCourses.objects.get(id = pk)
+    t_hold = Threshold.objects.filter(course_assigned = courses_a)
+    if (len(t_hold) == 0):
+        print("Not Available")
+        threshold = Threshold(course_assigned = courses_a)
+        threshold.save()
+    else:
+        threshold = t_hold[0]
+
+    context = {"pk": pk, "threshold": threshold}
+    return render(request, "Program Instructor/CO templates/Threshold.html", context)

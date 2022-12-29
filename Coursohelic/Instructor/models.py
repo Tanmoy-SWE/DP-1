@@ -41,3 +41,9 @@ class Result(models.Model):
     course_assigned = models.ForeignKey(AssignedCourses, on_delete=models.CASCADE, default=None)
     course_outcome = models.ForeignKey(Course_Outcome, on_delete=models.CASCADE, default=None)
     student = models.ForeignKey(Student, on_delete=models.CASCADE, default=None)
+
+class Threshold(models.Model):
+    course_assigned = models.ForeignKey(AssignedCourses, on_delete=models.CASCADE)
+    individual = models.DecimalField(max_digits = 6, decimal_places = 2, default=50)
+    overall = models.DecimalField(max_digits = 6, decimal_places = 2, default=50)
+    program = models.DecimalField(max_digits = 6, decimal_places = 2, default=50)
