@@ -353,6 +353,10 @@ def studentlistmarks(request, pk, pk2):
     c_assigned = AssignedCourses.objects.get(id = pk)
     students = Student.objects.filter(course_assigned = c_assigned)
     question = Questions.objects.filter(course_assigned = c_assigned, type = pk2)
+    totalquiz = 0
+    for i in range(len(question)):
+        totalquiz += question[i].totalmarks
+    
     everything = []
     for i in range(len(students)):
         total_marks = 0
@@ -363,7 +367,7 @@ def studentlistmarks(request, pk, pk2):
 
     
 
-    context = {"pk": pk, "pk2": pk2, "everything": everything}
+    context = {"pk": pk, "pk2": pk2, "everything": everything, "totalmark": totalquiz, "course": c_assigned}
     return render(request, "Program Instructor/StudentListForMarks.html",context)
 
 def assignmarks(request, pk, pk2, pk3):
