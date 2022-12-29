@@ -83,20 +83,20 @@
                 </tr>
               </thead>
               <tbody class="text-gray-600 text-sm font-light">
-                <!-- {% for program in programs %} -->
+                {% for student in students %}
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                   <td class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
                       <span class="font-medium"
-                        >{{program.coordinator.first_name}}</span
+                        >{{student.student_id}}</span
                       >
                     </div>
                   </td>
                   <td class="py-3 px-6 text-left">
-                    <span>{{program.program.p_name}}</span>
+                    <span>{{student.student_name}}</span>
                   </td>
                   <td class="py-3 px-6 text-left">
-                    <span>{{program.program.department}}</span>
+                    <span></span>
                   </td>
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
@@ -123,7 +123,7 @@
                         class="w-4 mr-2 transform text-red-700 hover:text-red-900 hover:scale-110"
                       >
                         <a
-                          href="{% url 'coordinator_confirmation' program.id %}"
+                          href=""
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
