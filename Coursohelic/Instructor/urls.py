@@ -20,7 +20,10 @@ urlpatterns = [
     path('addstudent/<pk>/', views.addstudent, name="addstudent"),
     path('deletestudentconfirmation/<pk>/<pk2>', views.deletestudentconfirmation, name="deletestudentconfirmation"),
     path('deletestudent/<pk>/<pk2>', views.deletestudent, name="deletestudent"),
-    path('gobackstudentlist/<pk>/', views.gobackstudentlist, name="gobackstudentlist")
-
+    path('gobackstudentlist/<pk>/', views.gobackstudentlist, name="gobackstudentlist"),
+    path('questioncourselist/', views.questioncourselist, name="questioncourselist"),
+    path('viewtermlist/<pk>/', views.viewtermlist, name="viewtermlist"), 
+    path('questionlist/<pk>/<str:pk2>/', views.questionlist, name="questionlist"),
+    path('addquestion/<pk>/<str:pk2>/', views.addquestion, name="addquestion")
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]

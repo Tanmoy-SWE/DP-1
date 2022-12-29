@@ -55,7 +55,7 @@
               Add New Question
             </h1>
           </div>
-          <form method="POST" action="">
+          <form method="POST" action="{% url 'addquestion' pk=pk pk2=pk2 %}">
             {% csrf_token %}
             <div class="lg:w-1/2 md:w-2/3 mx-auto">
               <div class="flex flex-wrap -m-2">
@@ -64,12 +64,7 @@
                     <label for="name" class="leading-7 text-sm text-gray-600"
                       >Question Number</label
                     >
-                    <input
-                      type="text"
-                      id="program"
-                      name="program"
-                      class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    />
+                    {{q_number}}
                   </div>
                 </div>
                 <div class="p-2 w-1/2">
@@ -80,7 +75,7 @@
                     <input
                       type="number"
                       id="Question"
-                      name="Question"
+                      name="Marks"
                       class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                     />
                   </div>
@@ -92,7 +87,7 @@
                     >
                     <textarea
                       id="message"
-                      name="message"
+                      name="Description"
                       class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                     ></textarea>
                   </div>
@@ -135,9 +130,9 @@
                       id="grid-state"
                       name="choice"
                     >
-                      <option value="option 1">CO1</option>
-                      <option value="option 1">CO2</option>
-                      <option value="option 1">CO3</option>
+                    {% for course in course_outcomes %}
+                      <option value={{course.id}}>{{course.c_code}}</option> 
+                    {% endfor %}                   
                     </select>
                     <!-- <label for="email" class="leading-7 text-sm text-gray-600"
                     >Total Marks</label

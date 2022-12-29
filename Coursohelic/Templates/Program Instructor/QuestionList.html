@@ -66,7 +66,7 @@
               <button
                 class="flex-shrink-0 text-white bg-green-500 border-0 py-0 px-2 focus:outline-none hover:bg-green-600 rounded text-lg mt-10 sm:mt-0"
               >
-                <a href="AddQuestion.html"> Add Question</a>
+                <a href={% url 'addquestion' pk=pk pk2=pk2 %}> Add Question</a>
               </button>
             </div>
           </div>
@@ -74,17 +74,18 @@
       <div class="container px-5 py-24 mx-auto">
         <div class="-my-8 divide-y-2 divide-gray-100">
             <!-- start the loop from here -->
+          {% for question in questions%}
           <div class="py-8 flex flex-wrap md:flex-nowrap">
             <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col text-center">
               <span class=" text-2xl  title-font text-gray-700"
-                >Question number</span
+                >{{question.number}}</span
               >
-              <span class="font-semibold title-font text-gray-700">Marks: 5</span>
-              <span class="font-semibold title-font text-gray-700">CO 1</span>
+              <span class="font-semibold title-font text-gray-700">Marks: {{question.totalmarks}}</span>
+              <span class="font-semibold title-font text-gray-700">{{question.course_outcome.c_code}}</span>
             </div>
             <div class="md:flex-grow text-center">
               <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
-                Bitters hashtag waistcoat fashion axe chia unicorn
+                {{question.description}}
               </h2>
               <a class="text-indigo-500 inline-flex items-center mt-4"
                 >Edit
@@ -94,6 +95,7 @@
               </a>
             </div>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>

@@ -32,3 +32,4 @@ class Questions(models.Model):
     description = models.TextField(max_length = 3000, default=None)
     type = models.CharField(max_length = 20, default=None)
     course_outcome = models.ForeignKey(Course_Outcome, on_delete=models.CASCADE)
+    course_assigned = models.ForeignKey(AssignedCourses, on_delete=models.CASCADE, default=None)

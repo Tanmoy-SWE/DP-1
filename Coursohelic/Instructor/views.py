@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from Coordinator.models import AssignedCourses, Program_Outcome, Course
-from .models import Course_Outcome, Mapping, Student
+from .models import Course_Outcome, Mapping, Student, Questions
 from InstitutionAdmin.models import Assign_Program
 from PyPDF2 import PdfFileMerger
 from django.core.files.storage import FileSystemStorage
@@ -262,3 +262,45 @@ def deletestudent(request, pk, pk2):
 def gobackstudentlist(request, pk):
     
     return redirect("/instructor/viewstudentlist/" + str(pk) + "/")
+
+def questioncourselist(request):
+    courses_a = AssignedCourses.objects.filter(instructor = request.user)
+    context = {"courses": courses_a}
+    return render(request, "Program Instructor/QuestionManagementCourseList.html", context)
+
+def viewtermlist(request, pk):
+    c_assigned = AssignedCourses.objects.get(id = pk)
+    context = {"pk": pk, "course": c_assigned}
+    return render(request, "Program Instructor/AllTermList.html", context)
+
+def questionlist(request, pk, pk2):
+    print(pk2)
+    c_assigned = AssignedCourses.objects.get(id = pk)
+    questions = Questions.objects.filter(course_assigned = c_assigned, type=pk2)
+    context={"pk": pk, "pk2": pk2, "course": c_assigned, "questions": questions}
+    return render(request, "Program Instructor/QuestionList.html", context)
+
+def addquestion(request, pk, pk2):
+    c_assigned = AssignedCourses.objects.get(id = pk)
+    co = Course_Outcome.objects.filter(course_assigned = c_assigned)
+    
+    
+    totalquestions = Questions.objects.filter(course_assigned = c_assigned, type=pk2)
+    q_number = len(totalquestions) + 1
+    if request.method == "POST":
+        name = request.POST["Marks"]
+        description = request.POST["Description"]
+        co_out = request.POST["choice"]
+        print(name)
+        print(description)
+        print(co_out)
+        print(pk2)
+
+        co_val = Course_Outcome.objects.get(id = co_out)
+        temp = Questions(number = q_number, totalmarks = name, description = description, type=pk2, course_outcome = co_val, course_assigned = c_assigned)
+        temp.save()
+
+        return redirect("/instructor/questionlist/"+ str(pk) + "/" + str(pk2) + "/")
+    
+    context = {"pk": pk, "pk2": pk2, "course_outcomes": co, "q_number": q_number}
+    return render(request, "Program Instructor/AddQuestion.html", context)
