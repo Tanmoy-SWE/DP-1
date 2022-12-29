@@ -45,9 +45,11 @@
         </button>
       </div>
     </header>
+    <div class="overflow-x-auto animate__animated animate__zoomIn">
+
   <form action="{% url 'submitmap' pk %}" method="POST">
       {% csrf_token%}
-    <div class="overflow-x-auto animate__animated animate__zoomIn">
+    <!-- <div class="overflow-x-auto animate__animated animate__zoomIn"> -->
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-12 mx-auto">
           <div
@@ -238,18 +240,19 @@
           
         </div>
      </div>
-    </div>
+    <!-- </div> -->
   </form>
   <form action = "{% url "confirmmap" pk %}" method = "POST">
     {% csrf_token %}
     <button
             type="submit"
             name="sendNewSms"
-            class="flex-shrink-0 text-white bg-blue-500 border-0 py-0 px-2 focus:outline-none hover:bg-blue-600 rounded text-lg mt-10 sm:mt-0"
+            class="flex mx-auto text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded text-lg"
           >
             Submit
           </button>
   </form>
+
       <form method="POST" action="{% url 'addCO' pk %}">
         {% csrf_token %}
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -277,6 +280,7 @@
             </div>
           </div>
         </div>
+    </div>
     </div>
   </body>
 </html>
