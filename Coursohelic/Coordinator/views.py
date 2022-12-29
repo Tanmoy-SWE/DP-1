@@ -78,7 +78,7 @@ def assign_instructor(request):
             assign.save()
 
 
-            
+            return redirect("/coordinator/")
       
       
       
