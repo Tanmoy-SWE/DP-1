@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <title>Program Coordinator List</title>
+    <title>Result Table</title>
   </head>
   <body>
     <header class="text-gray-600 body-font">
@@ -54,7 +54,7 @@
           <h1
             class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
           >
-            CO Attainment
+            CO/PO Attainment for {{course.course.c_code}}
           </h1>
         </div>
       </div>
@@ -77,108 +77,44 @@
                     >
                       Student Name
                     </th>
+                    {% for course in course_outcomes %}
                     <th
                       scope="col"
                       class="text-sm font-bold text-gray-900 px-6 py-4 text-left"
                     >
-                      CO1 Marks (%)
+                      {{course.c_code}} Marks (%)
                     </th>
                     <th
                       scope="col"
                       class="text-sm font-bold text-gray-900 px-6 py-4 text-left"
                     >
-                      CO1 Met (Y/N)
+                      {{course.c_code}} Met (Y/N)
                     </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-bold text-gray-900 px-6 py-4 text-left"
-                    >
-                      CO2 Marks (%)
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-bold text-gray-900 px-6 py-4 text-left"
-                    >
-                      CO2 Met (Y/N)
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-bold text-gray-900 px-6 py-4 text-left"
-                    >
-                      CO3 Marks (%)
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-bold text-gray-900 px-6 py-4 text-left"
-                    >
-                      CO3 Met (Y/N)
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-bold text-gray-900 px-6 py-4 text-left"
-                    >
-                      CO4 Marks (%)
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-bold text-gray-900 px-6 py-4 text-left"
-                    >
-                      CO4 Met (Y/N)
-                    </th>
+                    {% endfor %}
+                    
                   </tr>
                 </thead>
                 <tbody>
+                  {% for std in list_students %}
                   <tr class="border-b">
                     <td
                       class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
                     >
-                      190042130
+                      {{std.students.student_id}}
                     </td>
                     <td
                       class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                     >
-                      Mamun Khan
+                    {{std.students.student_name}}
                     </td>
+                    {% for i in std.maps%}
                     <td
                       class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                     >
-                      100%
+                      {{i}}
                     </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      Y
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      100%
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      Y
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      100%
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      Y
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      100%
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      Y
-                    </td>
+                    {% endfor %}
+                  {% endfor %}
                   </tr>
                   <tr>
                     <td
@@ -187,35 +123,17 @@
                     >
                       No. of students acheived CO
                     </td>
+                    {% for i in numberstudents %}
                     <td
                       class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                     >
-                      1
+                      {{i}}
                     </td>
                     <td
                       class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                     ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      1
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      1
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      1
-                    </td>
+                    {% endfor %}
+                    
                   </tr>
                   <tr>
                     <td
@@ -224,35 +142,17 @@
                     >
                       % of students acheived CO
                     </td>
+                    {% for i in percentages %}
                     <td
                       class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                     >
-                      100%
+                      {{i}}%
                     </td>
                     <td
                       class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                     ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      100%
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      100%
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      100%
-                    </td>
+                    {% endfor %}
+                    
                   </tr>
                   <tr>
                     <td
@@ -261,35 +161,17 @@
                     >
                       CO results
                     </td>
+                    {% for i in attains %}
                     <td
                       class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                     >
-                      Y
+                     {{i}}
                     </td>
                     <td
                       class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                     ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      Y
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      Y
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      Y
-                    </td>
+                    {% endfor %}
+                    
                   </tr>
                 </tbody>
               </table>

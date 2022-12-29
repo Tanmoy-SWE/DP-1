@@ -470,3 +470,62 @@ def assignpothreshold(request, pk):
         return redirect("/instructor/threshold/" + str(pk) + "/")
     context = {"pk": pk}
     return render(request, "Program Instructor/CO templates/AddThresholdPO.html", context)
+
+def generatetable(request, pk):
+    courses_a = AssignedCourses.objects.get(id = pk)
+    threshold = Threshold.objects.get(course_assigned = courses_a)
+    cos = Course_Outcome.objects.filter(course_assigned = courses_a)
+    total_achieved = {}
+    for i in range(0, len(cos)):
+        temp = cos[i].id
+        total_achieved[temp] = 0
+    print(cos)
+    students = Student.objects.filter(course_assigned = courses_a)
+    list_students = []
+    for i in range(len(students)):
+        temp = []
+        for j in range(len(cos)):
+            
+            print(cos[j])
+            result = Result.objects.filter(course_assigned = courses_a, course_outcome = cos[j], student = students[i])
+            total = 0
+            individual = 0
+            for k in range(len(result)):
+                individual += result[k].marks_obtained
+                total += result[k].totalmarks
+
+            percentage = (individual/total) * 100
+            temp.append(int(percentage))
+            if (percentage >= threshold.individual):
+                attained = "Y"   
+                code = cos[j].id
+                total_achieved[code] = 1 
+            else:
+                attained = "N"
+            temp.append(attained)
+            print(temp)
+           
+        list_students.append({"students": students[i], "maps": temp})
+        print(list_students) 
+        print(total_achieved)
+
+    percents = []
+    overallatt = []
+    no_of_students = []
+    for i in range(len(cos)):
+        id = cos[i].id
+        temp = total_achieved[id]
+        no_of_students.append(temp)
+        percentage = (temp/len(students) * 100)
+        percents.append(int(percentage))
+        if (percentage >= threshold.individual):
+            attained = "Y"   
+            
+        else:
+            attained = "N"
+        overallatt.append(attained)
+
+
+    
+    context = {"pk": pk, "course": courses_a, "course_outcomes": cos, "list_students": list_students, "percentages": percents, "attains": overallatt, "numberstudents": no_of_students}
+    return render(request, "Program Instructor/CO templates/COtable.html", context)

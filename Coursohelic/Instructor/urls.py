@@ -38,5 +38,6 @@ urlpatterns = [
     path('assignindividualthreshold/<pk>/', views.assignindividualthreshold, name="assignindividualthreshold"),
     path('assignoverallthreshold/<pk>/', views.assignoverallthreshold, name="assignoverallthreshold"),
     path('assignpothreshold/<pk>/', views.assignpothreshold, name="assignpothreshold"),
+    path('generatetable/<pk>/', views.generatetable, name="generatetable")
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]
