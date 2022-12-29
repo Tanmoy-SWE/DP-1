@@ -480,6 +480,8 @@ def generate_program_outcomes(pk):
     program_outcomes = Program_Outcome.objects.filter(program = program)
     return program_outcomes
 
+
+
 def generatetable(request, pk):
     courses_a = AssignedCourses.objects.get(id = pk)
     program_outcomes = generate_program_outcomes(pk)
@@ -524,6 +526,7 @@ def generatetable(request, pk):
     percents = []
     overallatt = []
     no_of_students = []
+    co_dict = {}
     for i in range(len(cos)):
         id = cos[i].id
         temp = total_achieved[id]
@@ -533,11 +536,32 @@ def generatetable(request, pk):
         if (percentage >= threshold.individual):
             attained = "Y"   
             
+            
         else:
             attained = "N"
+
+        co_dict[id] = attained
+        
         overallatt.append(attained)
-
-
     
-    context = {"pk": pk, "course": courses_a, "course_outcomes": cos, "list_students": list_students, "percentages": percents, "attains": overallatt, "numberstudents": no_of_students}
+    mapping_history = []
+    for i in range(len(cos)):
+        
+        id = cos[i].id
+        temp = []
+        for j in range(len(program_outcomes)):
+        
+            map = Mapping.objects.filter(course_outcome = cos[i], program_outcome = program_outcomes[j], course_assigned = courses_a)
+            if (len(map) == 0):
+                temp.append("")
+            elif(co_dict[id] == "Y"):
+                temp.append("1")
+
+            else:    
+                temp.append("0")
+
+        mapping_history.append({"course_outcome": cos[i], "attained":co_dict[id], "temp": temp})  
+    print(mapping_history)      
+    
+    context = {"pk": pk, "course": courses_a, "course_outcomes": cos, "list_students": list_students, "percentages": percents, "attains": overallatt, "numberstudents": no_of_students, "mapping_history": mapping_history}
     return render(request, "Program Instructor/CO templates/COtable.html", context)
