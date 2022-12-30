@@ -539,7 +539,9 @@ def generatetable(request, pk):
         no_of_students.append(temp)
         percentage = (temp/len(students) * 100)
         percents.append(int(percentage))
-        if (percentage >= threshold.individual):
+        print(percentage)
+        
+        if (percentage >= threshold.overall):
             attained = "Y"   
             
             
