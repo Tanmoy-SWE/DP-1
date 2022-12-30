@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Marksheet</title>
+  </head>
+  <body>
+    <header class="text-gray-600 body-font">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <span class="ml-3 text-xl">Coursohelic</span>
+        </a>
+        <nav
+          class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a href="/instructor/" class="mr-5 hover:text-gray-900">Home</a>
+          <a class="mr-5 hover:text-gray-900">{{user.first_name}}</a>
+        </nav>
+        <button
+          class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+        >
+          <a href="/institutionAdmin/logout/"> Logout </a>
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-4 h-4 ml-1"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <!-- component -->
+    <div class="overflow-x-auto animate__animated animate__zoomIn">
+      <div class="container px-5 py-20 mx-auto">
+        <div
+          class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto text-center"
+        >
+          <h1
+            class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
+          >
+            Marksheet of Quiz 1
+          </h1>
+        </div>
+      </div>
+
+      <div class="inline-flex rounded-md shadow-sm ml-8">
+        <a
+          href="#"
+          class="flex mx-auto mt-24 text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded text-sm"
+        >
+          Add Question
+        </a>
+        <a
+          href="#"
+          class="flex mx-auto mt-24 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-sm"
+        >
+          Add Sub-Question
+        </a>
+      </div>
+
+      <div class="flex flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="overflow-x-auto">
+              <form method="POST" action="">
+                <table class="min-w-full">
+                  <thead class="border-b">
+                    <tr>
+                      <th
+                        scope="col"
+                        class="text-sm font-bold text-gray-900 px-6 py-4 text-left"
+                      ></th>
+                      <th
+                        scope="col"
+                        class="text-sm font-bold text-gray-900 px-6 py-4 text-left"
+                      ></th>
+                      <th
+                        scope="col"
+                        class="text-sm font-bold text-gray-900 px-6 py-4 text-center"
+                      >
+                        1a
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-sm font-bold text-gray-900 px-6 py-4 text-center"
+                      >
+                        1b
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-sm font-bold text-gray-900 px-6 py-4 text-center"
+                      >
+                        2a
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-sm font-bold text-gray-900 px-6 py-4 text-center"
+                      >
+                        2b
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b">
+                      <td
+                        colspan="2"
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                      >
+                        Course Outcome
+                      </td>
+                      <td
+                        class="text text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                      >
+                        <select>
+                          <option value="None">None</option>
+                          <option value="CO1">CO1</option>
+                          <option value="mercedes">CO2</option>
+                          <option value="audi">CO3</option>
+                        </select>
+                      </td>
+                      <td
+                        class="text text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                      >
+                        <select>
+                          <option value="None">None</option>
+                          <option value="CO1">CO1</option>
+                          <option value="mercedes">CO2</option>
+                          <option value="audi">CO3</option>
+                        </select>
+                      </td>
+                      <td
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                      ></td>
+                    </tr>
+                    <tr>
+                      <td
+                        colspan="2"
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                      >
+                        Marks
+                      </td>
+                      <td
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                      >
+                        <div class="relative">
+                          <input
+                            type="number"
+                            id="Question"
+                            name="Marks"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          />
+                        </div>
+                      </td>
+                      <td
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                      >
+                        <div class="relative">
+                          <input
+                            type="number"
+                            id="Question"
+                            name="Marks"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          />
+                        </div>
+                      </td>
+                      <td
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                      >
+                        <div class="relative">
+                          <input
+                            type="number"
+                            id="Question"
+                            name="Marks"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          />
+                        </div>
+                      </td>
+                      <td
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                      >
+                        <div class="relative">
+                          <input
+                            type="number"
+                            id="Question"
+                            name="Marks"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                      >
+                        190042130
+                      </td>
+                      <td
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                      >
+                        Maman
+                      </td>
+                      <td
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                      >
+                        <div class="relative">
+                          <input
+                            type="number"
+                            id="Question"
+                            name="Marks"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          />
+                        </div>
+                      </td>
+                      <td
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                      >
+                        <div class="relative">
+                          <input
+                            type="number"
+                            id="Question"
+                            name="Marks"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          />
+                        </div>
+                      </td>
+                      <td
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                      >
+                        <div class="relative">
+                          <input
+                            type="number"
+                            id="Question"
+                            name="Marks"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          />
+                        </div>
+                      </td>
+                      <td
+                        class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                      >
+                        <div class="relative">
+                          <input
+                            type="number"
+                            id="Question"
+                            name="Marks"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <section class="text-gray-600 body-font">
+                  <div class="container px-5 py-24 mx-auto">
+                    <button
+                      type="submit"
+                      class="flex mx-auto mt-16 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </section>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
