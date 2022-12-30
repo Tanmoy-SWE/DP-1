@@ -24,7 +24,8 @@
         <nav
           class="md:ml-auto flex flex-wrap items-center text-base justify-center"
         >
-          <a href="/institutionAdmin/" class="mr-5 hover:text-gray-900">Home</a>
+          <a href="{% url 'viewtermlist' pk %}" class="mr-5 hover:text-gray-900">Back</a>
+          <a href="/instructor/" class="mr-5 hover:text-gray-900">Home</a>
           <a class="mr-5 hover:text-gray-900">{{user.first_name}}</a>
         </nav>
         <button
@@ -58,6 +59,12 @@
         >
           {{pk2}}
         </h1>
+        <h1
+          class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900"
+        >
+          Total Marks: {{total_marks}}
+        </h1>
+        
         </div>
         <div class="container px-1 mt-1 mr-4">
             <div

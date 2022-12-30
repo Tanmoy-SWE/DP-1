@@ -79,8 +79,8 @@ def setCO(request, pk):
 
     
     
-    if (a_course.is_mapped == True):
-        return HttpResponse("Hi")
+    # if (a_course.is_mapped == True):
+    #     return HttpResponse("Hi")
 
 
 
@@ -277,8 +277,12 @@ def questionlist(request, pk, pk2):
     print(pk2)
     c_assigned = AssignedCourses.objects.get(id = pk)
     questions = Questions.objects.filter(course_assigned = c_assigned, type=pk2)
+    total_marks = 0
+    for i in range(0, len(questions)):
+        total_marks += questions[i].totalmarks
+        
 
-    context={"pk": pk, "pk2": pk2, "course": c_assigned, "questions": questions}
+    context={"pk": pk, "pk2": pk2, "course": c_assigned, "questions": questions, "total_marks": total_marks}
     return render(request, "Program Instructor/QuestionList.html", context)
 
 def addquestion(request, pk, pk2):
@@ -508,8 +512,10 @@ def generatetable(request, pk):
             for k in range(len(result)):
                 individual += result[k].marks_obtained
                 total += result[k].totalmarks
-
-            percentage = (individual/total) * 100
+            if (total != 0):    
+                percentage = (individual/total) * 100
+            else:
+                percentage = 0
             temp.append(int(percentage))
             if (percentage >= threshold.individual):
                 attained = "Y"   
