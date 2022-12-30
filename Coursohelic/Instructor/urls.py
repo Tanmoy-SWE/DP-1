@@ -38,6 +38,9 @@ urlpatterns = [
     path('assignindividualthreshold/<pk>/', views.assignindividualthreshold, name="assignindividualthreshold"),
     path('assignoverallthreshold/<pk>/', views.assignoverallthreshold, name="assignoverallthreshold"),
     path('assignpothreshold/<pk>/', views.assignpothreshold, name="assignpothreshold"),
-    path('generatetable/<pk>/', views.generatetable, name="generatetable")
+    path('generatetable/<pk>/', views.generatetable, name="generatetable"),
+    path('marksheet/<pk>/<str:pk2>/', views.mark_sheet, name="marksheet"),
+    path('newquestion/<pk>/<str:pk2>/', views.newquestion, name="newquestion"),
+    path('newsubsection/<pk>/<str:pk2>/', views.newsubsection, name="newsubsection")
   #  path('courseList/', views.instructorList, name='instructorList'),
 ]

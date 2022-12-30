@@ -607,8 +607,82 @@ def mark_sheet(request, pk, pk2):
     co = Course_Outcome.objects.filter(course_assigned = courses_a)
 
     if request.method == "POST":
-        pass
+        print(request.body)
+        for i in range(len(questions)):
+            id = questions[i].id
+            
+            item = request.POST[str(id)]
 
+            if (item == "0"):
+                questions[i].course_outcome = None
+                questions[i].save()
+            else:
+                co = Course_Outcome.objects.get(id = item)
+                questions[i].course_outcome = co
+                questions[i].save()
+
+            for j in range(len(students)):
+                result = Result.objects.get(question = questions[i], student = students[j])
+                result.course_outcome = questions[i].course_outcome
+                result.save()
+
+        item = request.POST.getlist("temp")
+        print(item)
+        for i in range(len(questions)):
+            questions[i].totalmarks = item[i]
+            questions[i].save()
+
+            for j in range(len(students)):
+                result = Result.objects.get(question = questions[i], student = students[j])
+                result.totalmarks = questions[i].totalmarks
+                result.save()
+                
+        item = request.POST.getlist("Marks")
+        print(item)         
+        return redirect("/instructor/marksheet/" + str(pk) + "/" + str(pk2) + "/")   
+
+        
 
     context = {"questions": questions, "students": students, "co": co, "pk": pk, "pk2": pk2}
-    return render(request, "" ,context)
+    return render(request, "Program Instructor/Marksheet.html" , context)
+
+def newquestion(request, pk, pk2):
+    courses_a = AssignedCourses.objects.get(id = pk)
+    questions = Questions.objects.filter(course_assigned = courses_a, type = pk2)
+    students = Student.objects.filter(course_assigned = courses_a)
+    if (len(questions) == 0):
+        question = Questions(number = 1, subsection = "a", totalmarks = 0, description="", type=pk2, course_outcome = None, course_assigned = courses_a)
+        question.save()
+    else:
+        next = questions[len(questions) - 1].number + 1
+        question = Questions(number = next, subsection = "a", totalmarks = 0, description="", type=pk2, course_outcome = None, course_assigned = courses_a)
+        question.save()
+
+    for i in range(len(students)):
+        result = Result(totalmarks = question.totalmarks, marks_obtained = 0, question = question, course_assigned = courses_a, course_outcome = None, student = students[i])
+        result.save()
+
+    return redirect("/instructor/marksheet/" + str(pk) + "/" + str(pk2) + "/")
+
+def newsubsection(request, pk, pk2):
+    courses_a = AssignedCourses.objects.get(id = pk)
+    questions = Questions.objects.filter(course_assigned = courses_a, type = pk2)
+    students = Student.objects.filter(course_assigned = courses_a)
+    if (len(questions) == 0):
+         question = Questions(number = 1, subsection = "a", totalmarks = 0, description="", type=pk2, course_outcome = None, course_assigned = courses_a)
+         question.save()
+    else:
+        next = questions[len(questions) - 1]
+        num = next.number
+        subsection = ord(next.subsection) 
+        print(subsection)
+        subsection += 1
+        temp = chr(subsection)
+        question = Questions(number = num, subsection = temp, totalmarks = 0, description="", type=pk2, course_outcome = None, course_assigned = courses_a)
+        question.save()
+
+    for i in range(len(students)):
+        result = Result(totalmarks = question.totalmarks, marks_obtained = 0, question = question, course_assigned = courses_a, course_outcome = None, student = students[i])
+        result.save()
+
+    return redirect("/instructor/marksheet/" + str(pk) + "/" + str(pk2) + "/")    
