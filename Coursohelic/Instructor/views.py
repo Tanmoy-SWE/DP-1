@@ -636,9 +636,23 @@ def mark_sheet(request, pk, pk2):
                 result = Result.objects.get(question = questions[i], student = students[j])
                 result.totalmarks = questions[i].totalmarks
                 result.save()
-                
+
+
+        k = 0        
         item = request.POST.getlist("Marks")
-        print(item)         
+        for i in range(len(students)):
+            for j in range(len(questions)):
+                result = Result.objects.get(question = questions[j], student = students[i])
+                temp = float(item[k])
+                if (temp > result.totalmarks):
+                    result.marks_obtained = result.totalmarks
+                elif (temp < 0):
+                    result.marks_obtained = 0
+                else:
+                    result.marks_obtained = temp
+                result.save()
+                k += 1
+
         return redirect("/instructor/marksheet/" + str(pk) + "/" + str(pk2) + "/")   
 
     studentes = []
