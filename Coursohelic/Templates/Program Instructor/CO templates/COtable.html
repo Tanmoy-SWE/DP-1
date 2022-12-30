@@ -311,77 +311,35 @@
                   </tr>
                   <tr>
                     <td
-                      colspan="3"
+                      colspan="2"
                       class="text-sm font-bold text-gray-900 px-6 py-4 text-center"
                     >
-                      PO Attainment
+                      PO Attainment (%)
                     </td>
+                    {% for i in po_percent %}
                     <td
                       class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                     >
-                      1
+                    {{i}}
                     </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      1
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      1
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      1
-                    </td>
+                    {% endfor %}
+                    
                   </tr>
                   <tr>
                     <td
-                      colspan="3"
+                      colspan="2"
                       class="text-sm font-bold text-gray-900 px-6 py-4 text-center"
                     >
                       PO Attained
                     </td>
+                    {% for i in po_attained %}
                     <td
                       class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
                     >
-                      100%
+                      {{i}}
                     </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      100%
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      100%
-                    </td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    ></td>
-                    <td
-                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
-                    >
-                      100%
-                    </td>
+                    {% endfor %}
+                    
                   </tr>
                 </tbody>
               </table>

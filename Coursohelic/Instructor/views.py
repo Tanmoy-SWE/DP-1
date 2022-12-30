@@ -545,23 +545,49 @@ def generatetable(request, pk):
         overallatt.append(attained)
     
     mapping_history = []
+    po_total = {}
+    po_co_achieved = {}
+    for i in range(len(program_outcomes)):
+        id = program_outcomes[i].id
+        po_total[id] = 0
+        po_co_achieved[id] = 0
+
     for i in range(len(cos)):
         
         id = cos[i].id
         temp = []
         for j in range(len(program_outcomes)):
-        
+            pid = program_outcomes[j].id
             map = Mapping.objects.filter(course_outcome = cos[i], program_outcome = program_outcomes[j], course_assigned = courses_a)
             if (len(map) == 0):
                 temp.append("")
             elif(co_dict[id] == "Y"):
                 temp.append("1")
-
+                po_co_achieved[pid] += 1
+                po_total[pid] += 1 
             else:    
                 temp.append("0")
+                po_total[pid] += 1
 
         mapping_history.append({"course_outcome": cos[i], "attained":co_dict[id], "temp": temp})  
     print(mapping_history)      
     
-    context = {"pk": pk, "course": courses_a, "course_outcomes": cos, "list_students": list_students, "percentages": percents, "attains": overallatt, "numberstudents": no_of_students, "mapping_history": mapping_history}
+    po_percent = []
+    po_attained = []
+    for i in range(len(program_outcomes)):
+        pid = program_outcomes[i].id
+        if (po_total[pid] == 0):
+            po_percent.append("")
+            po_attained.append("")
+        else:
+            percentage = (po_co_achieved[pid]/po_total[pid] * 100)
+            po_percent.append(str(int(percentage)))
+            if (percentage >= threshold.program):
+                po_attained.append("Y")
+            else:
+                po_attained.append("N")
+
+    print(po_attained)
+
+    context = {"pk": pk, "course": courses_a, "course_outcomes": cos, "list_students": list_students, "percentages": percents, "attains": overallatt, "numberstudents": no_of_students, "mapping_history": mapping_history, "po_percent": po_percent, "po_attained": po_attained}
     return render(request, "Program Instructor/CO templates/COtable.html", context)
