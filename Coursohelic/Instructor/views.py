@@ -641,9 +641,14 @@ def mark_sheet(request, pk, pk2):
         print(item)         
         return redirect("/instructor/marksheet/" + str(pk) + "/" + str(pk2) + "/")   
 
-        
-
-    context = {"questions": questions, "students": students, "co": co, "pk": pk, "pk2": pk2}
+    studentes = []
+    for i in range(0, len(students)):
+        result = Result.objects.filter(course_assigned = courses_a, student = students[i])
+        temp = []
+        for j in range(0, len(result)):
+            temp.append(result[j].marks_obtained)
+        studentes.append({"student": students[i], "temp": temp})
+    context = {"questions": questions, "studentes": studentes, "co": co, "pk": pk, "pk2": pk2}
     return render(request, "Program Instructor/Marksheet.html" , context)
 
 def newquestion(request, pk, pk2):
