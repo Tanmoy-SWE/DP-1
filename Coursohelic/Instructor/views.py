@@ -599,3 +599,16 @@ def generatetable(request, pk):
 
     context = {"pk": pk, "course": courses_a, "course_outcomes": cos, "list_students": list_students, "percentages": percents, "attains": overallatt, "numberstudents": no_of_students, "mapping_history": mapping_history, "po_percent": po_percent, "po_attained": po_attained}
     return render(request, "Program Instructor/CO templates/COtable.html", context)
+
+def mark_sheet(request, pk, pk2):
+    courses_a = AssignedCourses.objects.get(id = pk)
+    questions = Questions.objects.filter(course_assigned = courses_a, type = pk2)
+    students = Student.objects.filter(course_assigned = courses_a)
+    co = Course_Outcome.objects.filter(course_assigned = courses_a)
+
+    if request.method == "POST":
+        pass
+
+
+    context = {"questions": questions, "students": students, "co": co, "pk": pk, "pk2": pk2}
+    return render(request, "" ,context)

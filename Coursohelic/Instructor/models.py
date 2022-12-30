@@ -28,6 +28,7 @@ class Student(models.Model):
 class Questions(models.Model):
 
     number = models.IntegerField()
+    subsection = models.CharField(max_length=2, default=None)
     totalmarks = models.DecimalField(max_digits = 6, decimal_places = 2, default=0)
     description = models.TextField(max_length = 3000, default=None)
     type = models.CharField(max_length = 20, default=None)
