@@ -26,6 +26,10 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
       - name: Upload artifact for deployment jobs
@@ -56,4 +60,4 @@ jobs:
         with:
           app-name: 'OBEIUT'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_25A01A93ED924932B6550C61D5144AED }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB452E8FDB21435ABD77DF9CA748C68C }}
